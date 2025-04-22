@@ -34,6 +34,7 @@ export default defineConfig(({ mode }) => {
     preview: {
       host: env.VITE_HOST || 'localhost',
       port: parseInt(env.VITE_PORT) || 5173,
+      allowedHosts: env.VITE_ALLOWED_HOSTS?.split(',') || [],
     }
   };
 });
