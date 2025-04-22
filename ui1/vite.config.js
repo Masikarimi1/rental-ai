@@ -1,10 +1,13 @@
-  // /gebral-Estate/ui/vite.config.js
-  import { defineConfig } from 'vite';
-  import react from '@vitejs/plugin-react';
-  import tailwindcss from '@tailwindcss/vite';
-  import path from 'path';
-  
-  export default defineConfig({
+// /gebral-Estate/ui/vite.config.js
+import { defineConfig, loadEnv } from 'vite';
+import react from '@vitejs/plugin-react';
+import tailwindcss from '@tailwindcss/vite';
+import path from 'path';
+
+export default defineConfig(({ mode }) => {
+  const env = loadEnv(mode, process.cwd(), 'VITE_');
+
+  return {
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
@@ -19,11 +22,18 @@
       },
     },
     server: {
+      host: env.VITE_HOST || 'localhost',
+      port: parseInt(env.VITE_PORT) || 5173,
       proxy: {
         '/api': {
-          target: 'http://localhost:5000',
+          target: env.VITE_API_URL || 'http://localhost:5000',
           changeOrigin: true,
         },
       },
     },
-  });
+    preview: {
+      host: env.VITE_HOST || 'localhost',
+      port: parseInt(env.VITE_PORT) || 5173,
+    }
+  };
+});

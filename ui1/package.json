@@ -8,7 +8,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "start": "vite preview"
+    "start": "vite preview --host $VITE_HOST --port $VITE_PORT"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.2",
