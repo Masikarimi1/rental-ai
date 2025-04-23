@@ -1,9 +1,0 @@
-crewai
-crewai_tools
-fastapi
-uvicorn[standard]
-pydantic
-streamlit
-schedule
-watchdog
-langchain_chroma
