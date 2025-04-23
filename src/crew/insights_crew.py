@@ -45,6 +45,12 @@ action_brief_agent = Agent(
     memory=True
 )
 
+vacancy_insights_agent = Agent(
+    config=agents_cfg["vacancy_insights_agent"],
+    tools=[],
+    memory=True
+)
+
 # For the news agent, grab the path you defined in YAML under tools→file_path
 print(NEWS_DIR)
 files = sorted(os.listdir(NEWS_DIR))
@@ -60,12 +66,13 @@ news_insight_agent = Agent(
 task_trendspotter    = Task(config=tasks_cfg["trendspotter_task"],    agent=trendspotter_agent)
 task_roi_forecaster  = Task(config=tasks_cfg["roi_forecaster_task"], agent=roi_forecaster_agent)
 task_news            = Task(config=tasks_cfg["news_task"],            agent=news_insight_agent)
+task_vacancy_insights  = Task(config=tasks_cfg["vacancy_insights_task"], agent=vacancy_insights_agent)
 task_action_brief    = Task(config=tasks_cfg["action_brief_task"],    agent=action_brief_agent,context=[task_trendspotter, task_roi_forecaster,task_news])
 
 # 5) Create a single Crew with all agents & tasks
 crew = Crew(
-    agents=[trendspotter_agent, roi_forecaster_agent, news_insight_agent,action_brief_agent],
-    tasks=[task_trendspotter, task_roi_forecaster, task_news, task_action_brief],
+    agents=[trendspotter_agent, roi_forecaster_agent, news_insight_agent,vacancy_insights_agent,action_brief_agent],
+    tasks=[task_trendspotter, task_roi_forecaster, task_news, task_vacancy_insights, task_action_brief],
     verbose=True,
     memory=True,
 # Long-term memory for persistent storage across sessions

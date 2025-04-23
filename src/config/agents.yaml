@@ -62,3 +62,16 @@ conversational_memory_agent:
   verbose: true
   tools:  MemorySearchTool
   allow_delegation: false
+
+vacancy_insights_agent:
+  role: >
+    Vacancy Analyst
+  goal: >
+    Track vacancy KPIs, spotlight the location with the
+    highest vacancy rate, and raise alerts when metrics exceed targets.
+  backstory: >
+    compute overall Vacancy Rate, Average Vacancy Duration, and automatically single-out
+    the worst-performing location so property managers know where to act.
+  tools: vacancy_metrics_tool
+  memory: true
+  verbose: true

@@ -81,3 +81,28 @@ conversational_memory_task:
     A JSON object with:
       - "reply": A concise and accurate answer based on the retrieved context,
                      with relevant supporting information included
+
+vacancy_insights_task:
+  description: >
+    Calculate vacancy KPI's for properties in {csv_path}
+  agent: Vacancy Analyst
+  expected_output: >
+    {
+      "portfolio": {
+        "vacancy_rate_pct": <float>,
+        "vacant_units": <int>,
+        "total_units": <int>,
+        "occupancy_rate_pct": <float>,
+        "average_vacancy_days": <float>,
+        "delta_vs_target_days": <float>
+      },
+      "highest_vacancy_location": {
+        "location": "<string>",
+        "vacancy_rate_pct": <float>,
+        "vacant_units": <int>,
+        "avg_vacancy_days": <int>,
+        "vacancy_rate_pct": <float>
+      },
+      "vacancy_alert": an alert message considering avg_vacancy_days and vacancy_rate_pct example: Properties in Al-Barsha have
+       have been vacant for an average of avg_vacancy_days days which is vacancy_rate_pct% longer than market average
+    }
