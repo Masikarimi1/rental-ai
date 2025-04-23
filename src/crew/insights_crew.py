@@ -5,6 +5,8 @@ from crewai import Agent, Task, Crew,Process
 from crewai_tools import FileReadTool
 from src.tools.custom_trendspotter_tool import TrendSpotterTool
 from src.tools.custom_roiforcaster_tool import ROIForecasterTool
+from src.tools.custom_price_advisor_tool import PriceAdvisorTool
+from src.tools.custom_vacancy_metrics_tool import VacancyMetricsTool
 from src.config.settings import settings
 from crewai.memory import LongTermMemory, ShortTermMemory, EntityMemory
 from crewai.memory.storage.rag_storage import RAGStorage
@@ -47,7 +49,13 @@ action_brief_agent = Agent(
 
 vacancy_insights_agent = Agent(
     config=agents_cfg["vacancy_insights_agent"],
-    tools=[],
+    tools=[VacancyMetricsTool()],
+    memory=True
+)
+
+price_advisor_agent = Agent(
+    config=agents_cfg["price_advisor_agent"],
+    tools=[PriceAdvisorTool()],
     memory=True
 )
 
@@ -67,12 +75,15 @@ task_trendspotter    = Task(config=tasks_cfg["trendspotter_task"],    agent=tren
 task_roi_forecaster  = Task(config=tasks_cfg["roi_forecaster_task"], agent=roi_forecaster_agent)
 task_news            = Task(config=tasks_cfg["news_task"],            agent=news_insight_agent)
 task_vacancy_insights  = Task(config=tasks_cfg["vacancy_insights_task"], agent=vacancy_insights_agent)
-task_action_brief    = Task(config=tasks_cfg["action_brief_task"],    agent=action_brief_agent,context=[task_trendspotter, task_roi_forecaster,task_news])
+task_price_advisor  = Task(config=tasks_cfg["price_advisor_task"], agent=price_advisor_agent)
+task_action_brief    = Task(config=tasks_cfg["action_brief_task"],    agent=action_brief_agent,context=[task_trendspotter, task_roi_forecaster,task_news,task_vacancy_insights,task_price_advisor])
 
 # 5) Create a single Crew with all agents & tasks
 crew = Crew(
-    agents=[trendspotter_agent, roi_forecaster_agent, news_insight_agent,vacancy_insights_agent,action_brief_agent],
-    tasks=[task_trendspotter, task_roi_forecaster, task_news, task_vacancy_insights, task_action_brief],
+    agents=[trendspotter_agent, roi_forecaster_agent, news_insight_agent,vacancy_insights_agent,price_advisor_agent,action_brief_agent],
+    tasks=[task_trendspotter, task_roi_forecaster, task_news, task_vacancy_insights,task_price_advisor, task_action_brief],
+    # agents=[price_advisor_agent],
+    # tasks=[task_price_advisor],
     verbose=True,
     memory=True,
 # Long-term memory for persistent storage across sessions

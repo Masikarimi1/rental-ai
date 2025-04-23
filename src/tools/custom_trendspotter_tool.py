@@ -56,13 +56,13 @@ class TrendSpotterTool(BaseTool):
 
             # Build human‑readable summary
             summary = [
-                f"📍 {loc}: {round(row['Current'])} AED/sqft ↑ {round(row['Change %'], 2)}%"
+                f"{loc}: {round(row['Current'])} AED/sqft ↑ {round(row['Change %'], 2)}%"
                 for loc, row in emerging.iterrows()
             ]
-            return "\n".join(["📊 Emerging Rental Trends (based on % change):"] + summary)
+            return "\n".join(["Emerging Rental Trends (based on % change):"] + summary)
 
         except Exception as e:
             return f"❌ TrendSpotter error: {str(e)}"
 v=TrendSpotterTool()
-
-print(v.run())
+v.run()
+# print()

@@ -75,3 +75,20 @@ vacancy_insights_agent:
   tools: vacancy_metrics_tool
   memory: true
   verbose: true
+
+price_advisor_agent:
+  role: >
+    Price Advisor
+  goal: >
+    Recommend optimised rent adjustments for the stalest listing(s) by blending
+    micro-market trend, vacancy pressure, and real-time macro sentiment
+    (FinBERT) into a single change % and confidence score.
+  backstory: >
+    You crunch the latest rental snapshot, detect how long each unit has been
+    vacant, add or subtract vacancy pressure, overlay FinBERT macro sentiment,
+    and output only the listing(s) with the **maximum vacancy days** so
+    managers can act where it matters most.
+  tools: price_advisor_tool          # the Python class you just built
+  allow_delegation: false
+  verbose: true
+  memory: false                      # stateless; override if you plan to persist
