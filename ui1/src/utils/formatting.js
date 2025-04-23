@@ -74,12 +74,17 @@ export const formatCurrency = (value, currency = 'AED', locale = 'en-AE') => {
    * @returns {string} Formatted percentage string
    */
   export const formatPercentage = (value, decimals = 1, showPlus = false) => {
-    const formatted = value.toFixed(decimals);
-    if (value > 0 && showPlus) {
+    const num = Number(value);
+    if (isNaN(num)) {
+      return '—%'; 
+    }
+    const formatted = num.toFixed(decimals);
+    if (num > 0 && showPlus) {
       return `+${formatted}%`;
     }
     return `${formatted}%`;
   };
+  
   
   /**
    * Formats a number with thousand separators

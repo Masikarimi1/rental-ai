@@ -45,7 +45,7 @@ const ManagerDashboard = () => {
         </div>
       </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <GlassCard className="flex flex-col">
           <div className="text-gray-light text-sm">Occupancy Rate</div>
           <div className="text-4xl font-bold mt-2">88%</div>
@@ -76,15 +76,6 @@ const ManagerDashboard = () => {
           </div>
         </GlassCard>
         
-        <GlassCard className="flex flex-col">
-          <div className="text-gray-light text-sm">Leases Expiring Soon</div>
-          <div className="text-4xl font-bold mt-2">24</div>
-          <div className="text-xs text-gray-light mt-1">Next 30 days</div>
-          <div className="flex items-center mt-2 text-sm text-primary-light">
-            <BellIcon className="w-4 h-4 mr-1" />
-            <span>8 renewal offers sent</span>
-          </div>
-        </GlassCard>
       </div>
       
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
