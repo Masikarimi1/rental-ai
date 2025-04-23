@@ -67,6 +67,6 @@ conversation_crew = Crew(
 # 5) Run
 # ------------------------------------------------------------------------------
 if __name__ == '__main__':
-    query = "why did you suggest to Prepare to increase commercial lease rates in DIFC by 7%"
+    query = "why 5% decrease suggested in price advisor tool"
     result = conversation_crew.kickoff(inputs={"user_query": query})
     print(result)

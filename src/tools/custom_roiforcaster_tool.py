@@ -87,4 +87,5 @@ class ROIForecasterTool(BaseTool):
         except Exception as e:
             return json.dumps({"error": f"ROI Forecaster error: {str(e)}"})
 
-
+v=ROIForecasterTool()
+print(v._run())

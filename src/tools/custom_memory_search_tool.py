@@ -30,7 +30,6 @@ class MemorySearchTool(BaseTool):
             embeddings_client = OpenAIEmbeddings(model="text-embedding-3-small",
                                                  openai_api_key=os.getenv("OPENAI_API_KEY"))
             query_vector = embeddings_client.embed_query(query)
-            print("QUERY VECTOR",query_vector)
             # 2) connect to your ChromaDB instance
             client = PersistentClient(path=str(CHROMA_DIR))
 

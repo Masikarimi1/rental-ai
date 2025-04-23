@@ -55,17 +55,17 @@ database_task:
 
 action_brief_task:
   description: >
-    1. Load the combined JSON results file produced by all agents (TrendSpotter, ROI Forecaster, News Intelligence).
-    2. For each agent’s output, extract the key insights and translate them into 1 brief.
+    Load the combined JSON results file produced by all agents and for each agent’s output, brief the action of agent combined with the result.
+    for price advisor agent, provide status_msg
   agent: Action Brief Generator
   expected_output: >
-    A JSON object with four fields (one per agent), each containing a list of action item strings. For example:
+    A list of structured JSON objects where each item contains:
       {
         "TrendSpotter": [
           "Identified increase in rents by 3% in Downtown"
         ],
         "News Intelligence": [
-          "🚆 suggested to adjust pricing strategy along Sheikh Zayed Road following Green Metro announcement"
+          "suggested to adjust pricing strategy along Sheikh Zayed Road following Green Metro announcement"
         ]
       }
 
@@ -87,22 +87,53 @@ vacancy_insights_task:
     Calculate vacancy KPI's for properties in {csv_path}
   agent: Vacancy Analyst
   expected_output: >
-    {
-      "portfolio": {
-        "vacancy_rate_pct": <float>,
-        "vacant_units": <int>,
-        "total_units": <int>,
-        "occupancy_rate_pct": <float>,
-        "average_vacancy_days": <float>,
-        "delta_vs_target_days": <float>
-      },
-      "highest_vacancy_location": {
-        "location": "<string>",
-        "vacancy_rate_pct": <float>,
-        "vacant_units": <int>,
-        "avg_vacancy_days": <int>,
-        "vacancy_rate_pct": <float>
-      },
-      "vacancy_alert": an alert message considering avg_vacancy_days and vacancy_rate_pct example: Properties in Al-Barsha have
-       have been vacant for an average of avg_vacancy_days days which is vacancy_rate_pct% longer than market average
-    }
+    A list of structured JSON objects where each item contains:
+    vacancy_rate_pct: % of all units that are currently vacant
+    vacant_units: Absolute count of vacant units
+    total_units: Total units in the portfolio (vacant + occupied)
+    occupancy_rate_pct: % of units that are occupied (100 – vacancy_rate_pct)
+    average_vacancy_days: Mean days current vacancies have been on the market
+    delta_vs_target_days: Avg-vacancy-days minus company target (positive = slower)
+    highest_vacancy_location:
+      location: Area/neighbourhood with the worst vacancy metrics
+      vacancy_rate_pct: Vacancy rate within that location
+      vacant_units: Number of empty units there
+      avg_vacancy_days: Average days vacant for those units
+    vacancy_alert: Properties in <location> have been vacant for an average of <avg_vacancy_days> days
+
+
+price_advisor_task:
+  description: >  
+    Calculate price based on market
+  agent: Price Advisor
+  expected_output: >
+    A list of JSON objects, each containing:
+      - "address": Property identifier or headline address
+      - "rent": The listed rental price
+      - "beds": Number of bedrooms
+      - "baths": Number of bathrooms
+      - "type": Type of property (e.g., Apartment, Villa)
+      - "area_in_sqft": Area of the property in square feet
+      - "rent_per_sqft": Calculated rent per square foot
+      - "rent_category": Broad categorization of the rent level (e.g., Low, Medium, High)
+      - "frequency": Rental payment frequency (e.g., Yearly, Monthly)
+      - "furnishing": Furnishing status of the property (e.g., Furnished, Unfurnished)
+      - "purpose": The purpose of the listing (e.g., For Rent, For Sale)
+      - "posted_date": Date when the listing was posted
+      - "age_of_listing_in_days": Number of days the listing has been active
+      - "location": Specific area or community of the property
+      - "city": City where the property is located
+      - "latitude": Geographical latitude of the property
+      - "longitude": Geographical longitude of the property
+      - "vacant_days": Number of days the property has been vacant
+      - "total_units": Total number of units in the building or development
+      - "vacant_units": Number of vacant units in the building or development
+      - "source": Source of the listing (e.g., Agency Name, Corporate Partners)
+      - "complaint": Any recorded complaint related to the property or listing (likely a boolean or text)
+      - "complaint_count": Number of complaints associated with the property or listing
+      - "market_trend": Current trend of the property market in the area (e.g., rising, falling, stable)
+      - "change_pct": Percentage change in price or market value
+      - "recommended_rent": Suggested rental price based on market analysis
+      - "confidence": Confidence level in the recommended rent
+      - "price_action": Indication of any price adjustments made (e.g., applied, suggested)
+      - "status_msg": A message related to the current status or price action of the listing
