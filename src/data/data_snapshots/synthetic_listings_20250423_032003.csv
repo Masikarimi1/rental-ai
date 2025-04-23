@@ -1,0 +1,24 @@
+Address,Rent,Beds,Baths,Type,Area_in_sqft,Rent_per_sqft,Rent_category,Frequency,Furnishing,Purpose,Posted_date,Age_of_listing_in_days,Location,City,Latitude,Longitude
+"Cherrywoods, Dubailand, Dubai",200000,3,4,Townhouse,2232,89.61,High,Yearly,Unfurnished,For Rent,03-01-2024,109,Dubailand,Dubai,25.05865715,55.24599921
+"DAMAC Heights, Dubai Marina, Dubai",360000,3,4,Apartment,1948,184.8,High,Yearly,Furnished,For Rent,03-01-2024,109,Dubai Marina,Dubai,25.0786415,55.1352524
+123 Maple Street,1500,2,1,Apartment,800,1.88,Medium,Monthly,Unfurnished,Residential,2023-09-15,30,Downtown,Springfield,39.7817,-89.6501
+456 Oak Avenue,1200,1,1,Condo,700,1.71,Medium,Monthly,Furnished,Residential,2023-10-01,14,Midtown,Springfield,39.7817,-89.6501
+789 Pine Lane,950,1,1,Studio,500,1.9,Medium,Monthly,Partially Furnished,Residential,2023-09-25,20,Suburbs,Springfield,39.799,-89.643
+321 Birch Road,2000,3,2,House,1200,1.67,High,Monthly,Unfurnished,Residential,2023-09-20,25,Countryside,Springfield,39.72,-89.61
+654 Cedar Drive,800,1,1,Apartment,600,1.33,Low,Monthly,Unfurnished,Residential,2023-10-05,10,Downtown,Springfield,39.7817,-89.6501
+987 Elm Street,2400,4,3,House,1500,1.6,High,Monthly,Furnished,Residential,2023-09-10,35,Suburbs,Springfield,39.799,-89.643
+159 Willow Way,1050,2,1,Apartment,750,1.4,Medium,Monthly,Partially Furnished,Residential,2023-09-18,27,Midtown,Springfield,39.7817,-89.6501
+753 Ash Lane,1800,3,2,Condo,1100,1.64,Medium,Monthly,Unfurnished,Residential,2023-09-30,15,Countryside,Springfield,39.72,-89.61
+852 Spruce Street,2200,4,3,House,1400,1.57,High,Monthly,Furnished,Residential,2023-09-12,33,Suburbs,Springfield,39.799,-89.643
+951 Sycamore Circle,900,1,1,Studio,550,1.64,Medium,Monthly,Unfurnished,Residential,2023-10-03,12,Downtown,Springfield,39.7817,-89.6501
+753 Oakwood Drive,1600,2,2,Apartment,900,1.78,Medium,Monthly,Furnished,Residential,2023-09-28,22,Midtown,Springfield,39.7817,-89.6501
+147 Maplewood Avenue,1300,2,1,Condo,800,1.63,Medium,Monthly,Partially Furnished,Residential,2023-09-16,29,Countryside,Springfield,39.72,-89.61
+369 Birchwood Lane,2100,3,2,House,1300,1.62,High,Monthly,Unfurnished,Residential,2023-09-05,40,Suburbs,Springfield,39.799,-89.643
+258 Cedarwood Drive,1700,3,2,Condo,1000,1.7,Medium,Monthly,Furnished,Residential,2023-10-02,13,Downtown,Springfield,39.7817,-89.6501
+963 Spruceland Court,1400,2,1,Apartment,850,1.65,Medium,Monthly,Unfurnished,Residential,2023-09-22,23,Midtown,Springfield,39.7817,-89.6501
+741 Pinewood Road,2300,4,3,House,1450,1.59,High,Monthly,Partially Furnished,Residential,2023-09-08,37,Countryside,Springfield,39.72,-89.61
+852 Maple Circle,1000,1,1,Studio,550,1.82,Medium,Monthly,Furnished,Residential,2023-10-04,11,Suburbs,Springfield,39.799,-89.643
+258 Willow Lane,1100,2,1,Apartment,700,1.57,Medium,Monthly,Unfurnished,Residential,2023-09-19,26,Midtown,Springfield,39.7817,-89.6501
+963 Birch Circle,1900,3,2,Condo,1150,1.65,Medium,Monthly,Partially Furnished,Residential,2023-09-29,16,Countryside,Springfield,39.72,-89.61
+147 Sycamore Drive,1350,2,1,Apartment,800,1.69,Medium,Monthly,Furnished,Residential,2023-09-23,22,Downtown,Springfield,39.7817,-89.6501
+654 Oak Lane,850,1,1,Studio,500,1.7,Medium,Monthly,Unfurnished,Residential,2023-10-06,9,Midtown,Springfield,39.7817,-89.6501

@@ -1,0 +1,23 @@
+Address,Rent,Beds,Baths,Type,Area_in_sqft,Rent_per_sqft,Rent_category,Frequency,Furnishing,Purpose,Posted_date,Age_of_listing_in_days,Location,City,Latitude,Longitude
+"Cherrywoods, Dubailand, Dubai",200000,3,4,Townhouse,2232,89.61,High,Yearly,Unfurnished,For Rent,03-01-2024,109,Dubailand,Dubai,25.05865715,55.24599921
+"DAMAC Heights, Dubai Marina, Dubai",360000,3,4,Apartment,1948,184.8,High,Yearly,Furnished,For Rent,03-01-2024,109,Dubai Marina,Dubai,25.0786415,55.1352524
+123 Maple Street,1200,2,1,Apartment,800,1.5,Low,Monthly,Unfurnished,Residential,2023-09-15,20,Downtown,Springfield,39.7817,-89.6501
+456 Elm Street,2500,3,2,Condo,1200,2.08,Medium,Monthly,Furnished,Residential,2023-08-20,46,Uptown,Springfield,39.7817,-89.6501
+789 Oak Avenue,3500,4,3,House,2000,1.75,High,Monthly,Semi-furnished,Residential,2023-09-01,34,Suburb,Springfield,39.7817,-89.6501
+101 Pine Street,1800,2,2,Townhouse,1000,1.8,Medium,Monthly,Unfurnished,Residential,2023-09-10,25,Midtown,Springfield,39.7817,-89.6501
+202 Birch Lane,1500,1,1,Studio,600,2.5,Medium,Monthly,Furnished,Residential,2023-10-01,4,Downtown,Springfield,39.7817,-89.6501
+303 Cedar Court,900,1,1,Apartment,500,1.8,Low,Monthly,Unfurnished,Residential,2023-09-25,10,Old Town,Springfield,39.7817,-89.6501
+404 Spruce Drive,2200,3,2,Condo,1100,2.0,Medium,Monthly,Furnished,Residential,2023-08-30,36,Uptown,Springfield,39.7817,-89.6501
+505 Ash Way,4000,5,4,House,2500,1.6,High,Monthly,Semi-furnished,Residential,2023-09-05,30,Suburb,Springfield,39.7817,-89.6501
+606 Willow Street,1400,2,1,Apartment,700,2.0,Medium,Monthly,Unfurnished,Residential,2023-09-20,15,Midtown,Springfield,39.7817,-89.6501
+707 Poplar Avenue,3200,4,3,House,1600,2.0,High,Monthly,Furnished,Residential,2023-09-01,34,Downtown,Springfield,39.7817,-89.6501
+808 Cedar Lane,1100,1,1,Studio,550,2.0,Low,Monthly,Furnished,Residential,2023-09-25,10,Old Town,Springfield,39.7817,-89.6501
+909 Pine Avenue,2700,3,2,Townhouse,1350,2.0,High,Monthly,Semi-furnished,Residential,2023-08-21,45,Midtown,Springfield,39.7817,-89.6501
+101 Elm Court,950,1,1,Apartment,550,1.73,Low,Monthly,Unfurnished,Residential,2023-09-26,9,Downtown,Springfield,39.7817,-89.6501
+202 Birch Way,2300,3,2,Condo,1150,2.0,Medium,Monthly,Furnished,Residential,2023-09-12,23,Uptown,Springfield,39.7817,-89.6501
+303 Cedar Avenue,3800,5,4,House,2200,1.73,High,Monthly,Semi-furnished,Residential,2023-09-05,30,Suburb,Springfield,39.7817,-89.6501
+404 Spruce Street,1450,2,1,Apartment,725,2.0,Medium,Monthly,Unfurnished,Residential,2023-09-20,15,Midtown,Springfield,39.7817,-89.6501
+505 Ash Avenue,3300,4,3,House,1650,2.0,High,Monthly,Furnished,Residential,2023-09-03,32,Downtown,Springfield,39.7817,-89.6501
+606 Willow Lane,1150,1,1,Studio,575,2.0,Low,Monthly,Furnished,Residential,2023-09-27,8,Old Town,Springfield,39.7817,-89.6501
+707 Poplar Lane,2800,3,2,Townhouse,1400,2.0,High,Monthly,Semi-furnished,Residential,2023-08-22,44,Midtown,Springfield,39.7817,-89.6501
+808 Cedar Street,980,1,1,Apartment,560,1.75,Low,Monthly,Unfurnished,Residential,2023-09-28,7,Downtown,Springfield,39.7817,-89.6501

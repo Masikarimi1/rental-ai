@@ -1,0 +1,24 @@
+Address,Rent,Beds,Baths,Type,Area_in_sqft,Rent_per_sqft,Rent_category,Frequency,Furnishing,Purpose,Posted_date,Age_of_listing_in_days,Location,City,Latitude,Longitude
+"Cherrywoods, Dubailand, Dubai",200000,3,4,Townhouse,2232,89.61,High,Yearly,Unfurnished,For Rent,03-01-2024,109,Dubailand,Dubai,25.05865715,55.24599921
+"DAMAC Heights, Dubai Marina, Dubai",360000,3,4,Apartment,1948,184.8,High,Yearly,Furnished,For Rent,03-01-2024,109,Dubai Marina,Dubai,25.0786415,55.1352524
+123 Maple St,1200,2,1,Apartment,800,1.5,Low,Monthly,Unfurnished,Residential,2023-10-01,5,Downtown,Metropolis,40.7128,-74.006
+456 Oak Ave,2500,3,2,House,1500,1.67,Medium,Monthly,Furnished,Residential,2023-09-25,11,Suburb,Metropolis,40.713,-74.007
+789 Pine Dr,3500,4,3,House,2000,1.75,High,Monthly,Partially Furnished,Residential,2023-09-20,16,Uptown,Metropolis,40.714,-74.008
+321 Elm St,1800,2,1,Apartment,900,2.0,Medium,Monthly,Unfurnished,Residential,2023-09-28,8,Midtown,Metropolis,40.715,-74.009
+654 Cedar Ln,1000,1,1,Studio,500,2.0,Low,Monthly,Furnished,Residential,2023-09-30,6,Downtown,Metropolis,40.716,-74.01
+987 Spruce Rd,2700,3,2,Apartment,1400,1.93,Medium,Monthly,Partially Furnished,Residential,2023-09-22,14,Suburb,Metropolis,40.717,-74.011
+159 Willow St,4000,4,3,Penthouse,2200,1.82,High,Monthly,Furnished,Residential,2023-09-18,18,Uptown,Metropolis,40.718,-74.012
+753 Birch Ave,950,1,1,Studio,450,2.11,Low,Monthly,Unfurnished,Residential,2023-10-02,4,Downtown,Metropolis,40.719,-74.013
+852 Aspen Cir,1500,2,1,Apartment,700,2.14,Medium,Monthly,Partially Furnished,Residential,2023-09-29,7,Midtown,Metropolis,40.72,-74.014
+963 Poplar Dr,2800,3,2,House,1300,2.15,Medium,Monthly,Furnished,Residential,2023-09-21,15,Suburb,Metropolis,40.721,-74.015
+456 Cherry Ln,3200,3,2,House,1800,1.78,High,Monthly,Unfurnished,Residential,2023-09-27,9,Uptown,Metropolis,40.722,-74.016
+789 Walnut St,1100,1,1,Apartment,600,1.83,Low,Monthly,Furnished,Residential,2023-09-30,6,Downtown,Metropolis,40.723,-74.017
+123 Elmwood Ave,3600,4,3,Penthouse,2100,1.71,High,Monthly,Furnished,Residential,2023-09-19,17,Uptown,Metropolis,40.724,-74.018
+321 Maple Dr,1300,2,1,Apartment,750,1.73,Low,Monthly,Partially Furnished,Residential,2023-09-28,8,Midtown,Metropolis,40.725,-74.019
+654 Pine St,2700,3,2,House,1600,1.69,Medium,Monthly,Unfurnished,Residential,2023-09-22,14,Suburb,Metropolis,40.726,-74.02
+987 Oak Ave,1500,2,1,Apartment,800,1.88,Medium,Monthly,Partially Furnished,Residential,2023-09-29,7,Midtown,Metropolis,40.727,-74.021
+159 Birch Rd,950,1,1,Studio,500,1.9,Low,Monthly,Furnished,Residential,2023-10-03,3,Downtown,Metropolis,40.728,-74.022
+753 Cedar Cir,2800,3,2,Apartment,1700,1.65,Medium,Monthly,Unfurnished,Residential,2023-09-21,15,Suburb,Metropolis,40.729,-74.023
+852 Spruce St,3200,4,3,House,1900,1.68,High,Monthly,Partially Furnished,Residential,2023-09-27,9,Uptown,Metropolis,40.73,-74.024
+963 Willow Ave,1100,1,1,Studio,550,2.0,Low,Monthly,Furnished,Residential,2023-09-30,6,Downtown,Metropolis,40.731,-74.025
+456 Poplar Ln,3700,4,3,Penthouse,2300,1.61,High,Monthly,Furnished,Residential,2023-09-18,18,Uptown,Metropolis,40.732,-74.026

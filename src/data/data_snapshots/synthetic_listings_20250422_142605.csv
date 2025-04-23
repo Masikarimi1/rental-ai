@@ -1,0 +1,24 @@
+Address,Rent,Beds,Baths,Type,Area_in_sqft,Rent_per_sqft,Rent_category,Frequency,Furnishing,Purpose,Posted_date,Age_of_listing_in_days,Location,City,Latitude,Longitude
+"Cherrywoods, Dubailand, Dubai",200000,3,4,Townhouse,2232,89.61,High,Yearly,Unfurnished,For Rent,03-01-2024,109,Dubailand,Dubai,25.05865715,55.24599921
+"DAMAC Heights, Dubai Marina, Dubai",360000,3,4,Apartment,1948,184.8,High,Yearly,Furnished,For Rent,03-01-2024,109,Dubai Marina,Dubai,25.0786415,55.1352524
+123 Elm St,1200,2,1,Apartment,850,1.41,Medium,Monthly,Unfurnished,Residential,2023-10-01,5,Downtown,Springfield,39.7817,-89.6501
+456 Maple Ave,2500,3,2,House,1500,1.67,High,Monthly,Furnished,Residential,2023-09-25,11,Suburbs,Greenfield,42.5879,-72.5994
+789 Oak Dr,950,1,1,Apartment,700,1.36,Low,Monthly,Semi-furnished,Residential,2023-09-30,6,Uptown,Riverside,40.6782,-73.9442
+101 Pine Ln,1800,2,2,Condo,1100,1.64,Medium,Monthly,Furnished,Residential,2023-09-28,8,Downtown,Mapleton,34.0522,-118.2437
+202 Birch Blvd,1100,2,1,Apartment,800,1.38,Medium,Monthly,Unfurnished,Residential,2023-09-29,7,Midtown,Hilltown,37.7749,-122.4194
+303 Cedar Cir,900,1,1,Studio,600,1.5,Low,Monthly,Unfurnished,Residential,2023-10-02,4,Old Town,Brookfield,41.8781,-87.6298
+404 Walnut Way,2400,3,2,House,1600,1.5,High,Monthly,Semi-furnished,Residential,2023-09-27,9,Suburbs,Riverdale,40.7128,-74.006
+505 Spruce St,1300,2,1,Apartment,900,1.44,Medium,Monthly,Furnished,Residential,2023-09-26,10,City Center,Lakeside,34.0522,-118.2437
+606 Aspen Ave,1700,2,2,Condo,1000,1.7,Medium,Monthly,Unfurnished,Residential,2023-09-25,11,Uptown,Meadowfield,36.7783,-119.4179
+707 Chestnut Dr,800,1,1,Studio,500,1.6,Low,Monthly,Semi-furnished,Residential,2023-09-30,6,Downtown,Woodland,40.7128,-74.006
+808 Redwood Rd,2200,3,2,House,1400,1.57,High,Monthly,Furnished,Residential,2023-09-28,8,Midtown,Evergreen,41.2033,-77.1945
+909 Maple St,1400,2,1,Apartment,950,1.47,Medium,Monthly,Unfurnished,Residential,2023-09-29,7,Old Town,Sunnyville,43.2994,-74.2179
+1001 Fir Ln,850,1,1,Studio,550,1.55,Low,Monthly,Furnished,Residential,2023-09-27,9,City Center,Valleyview,40.7306,-73.9352
+1112 Arbor Way,2000,3,2,House,1300,1.54,High,Monthly,Unfurnished,Residential,2023-09-26,10,Suburbs,Forestville,34.0522,-118.2437
+1213 Beech Blvd,950,1,1,Apartment,650,1.46,Low,Monthly,Semi-furnished,Residential,2023-09-25,11,Uptown,Hillcrest,36.7783,-119.4179
+1314 Pine St,1900,2,2,Condo,1150,1.65,Medium,Monthly,Unfurnished,Residential,2023-09-30,6,Downtown,Brookside,40.6782,-73.9442
+1415 Willow Ln,800,1,1,Studio,550,1.45,Low,Monthly,Furnished,Residential,2023-10-01,5,Old Town,Cedarville,41.8781,-87.6298
+1516 Maple Ave,2200,3,2,House,1450,1.52,High,Monthly,Semi-furnished,Residential,2023-09-29,7,Midtown,Riverside,40.7128,-74.006
+1617 Oak St,1500,2,1,Apartment,950,1.58,Medium,Monthly,Unfurnished,Residential,2023-09-28,8,Uptown,Greenfield,42.5879,-72.5994
+1718 Ash Dr,900,1,1,Studio,600,1.5,Low,Monthly,Semi-furnished,Residential,2023-09-27,9,Downtown,Mapleton,34.0522,-118.2437
+1819 Birch Blvd,2000,3,2,House,1350,1.48,High,Monthly,Furnished,Residential,2023-09-26,10,Suburbs,Sunnytown,37.7749,-122.4194

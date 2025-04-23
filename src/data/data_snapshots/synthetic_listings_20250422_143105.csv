@@ -1,0 +1,23 @@
+Address,Rent,Beds,Baths,Type,Area_in_sqft,Rent_per_sqft,Rent_category,Frequency,Furnishing,Purpose,Posted_date,Age_of_listing_in_days,Location,City,Latitude,Longitude
+"Cherrywoods, Dubailand, Dubai",200000,3,4,Townhouse,2232,89.61,High,Yearly,Unfurnished,For Rent,03-01-2024,109,Dubailand,Dubai,25.05865715,55.24599921
+"DAMAC Heights, Dubai Marina, Dubai",360000,3,4,Apartment,1948,184.8,High,Yearly,Furnished,For Rent,03-01-2024,109,Dubai Marina,Dubai,25.0786415,55.1352524
+123 Maple Street,1200,2,1,Apartment,800,1.5,Low,Monthly,Unfurnished,Residential,2023-09-15,30,Downtown,Springfield,39.7817,-89.6501
+456 Oak Avenue,2500,3,2,House,1500,1.67,Medium,Monthly,Partially Furnished,Residential,2023-09-10,35,Suburbs,Greenfield,40.3517,-86.6411
+789 Pine Lane,3500,4,3,House,2000,1.75,High,Monthly,Furnished,Residential,2023-09-20,25,Uptown,Riverside,41.85,-87.6505
+159 Elm Street,1800,2,2,Condo,1000,1.8,Medium,Monthly,Unfurnished,Residential,2023-09-25,20,City Center,Lakeview,42.3584,-71.0598
+321 Birch Road,1100,1,1,Apartment,750,1.47,Low,Monthly,Furnished,Residential,2023-09-18,27,Historic District,Fairview,36.1627,-86.7816
+246 Cedar Lane,2100,3,2,Townhouse,1300,1.62,Medium,Monthly,Partially Furnished,Residential,2023-09-12,33,East Side,Hilltop,38.627,-90.1994
+975 Walnut Street,2800,4,3,House,1800,1.56,High,Monthly,Unfurnished,Residential,2023-09-05,40,West End,Brookfield,40.7128,-74.006
+333 Willow Drive,1350,2,1,Apartment,900,1.5,Low,Monthly,Partially Furnished,Residential,2023-09-22,23,Old Town,Mapleton,34.0522,-118.2437
+789 Spruce Street,3400,4,3,House,1900,1.79,High,Monthly,Furnished,Residential,2023-09-30,15,Greenbelt,Hillside,37.7749,-122.4194
+654 Chestnut Avenue,1700,2,2,Condo,950,1.79,Medium,Monthly,Unfurnished,Residential,2023-09-08,37,Riverfront,Cedarville,41.8781,-87.6298
+102 Oakwood Court,1450,2,1,Apartment,850,1.71,Low,Monthly,Furnished,Residential,2023-09-26,19,North Park,Sunnyvale,37.3688,-122.0363
+555 Redwood Lane,3200,3,2,House,1600,2.0,High,Monthly,Partially Furnished,Residential,2023-09-28,17,Lakeside,Forestville,34.0194,-118.4912
+888 Cypress Road,1250,1,1,Apartment,700,1.79,Low,Monthly,Unfurnished,Residential,2023-09-14,31,Harborview,Seaview,36.7783,-119.4179
+777 Birch Boulevard,2900,4,2,House,1700,1.71,High,Monthly,Furnished,Residential,2023-09-02,43,Sunset Hills,Clearwater,27.9659,-82.8001
+456 Maple Avenue,1550,2,1,Apartment,850,1.82,Medium,Monthly,Partially Furnished,Residential,2023-09-19,26,East Village,Ridgewood,40.7128,-74.006
+303 Pinewood Drive,2100,3,2,Condo,1100,1.91,Medium,Monthly,Unfurnished,Residential,2023-09-23,22,West Loop,Northgate,47.6062,-122.3321
+444 Poplar Street,3600,4,3,House,1900,1.89,High,Monthly,Furnished,Residential,2023-09-29,16,Central Park,Meadowbrook,40.7128,-74.006
+222 Ash Lane,1950,2,2,Apartment,950,2.05,Medium,Monthly,Partially Furnished,Residential,2023-09-21,24,Downtown,Parkville,37.7749,-122.4194
+567 Willow Court,1300,1,1,Apartment,650,2.0,Low,Monthly,Unfurnished,Residential,2023-09-17,28,Old Town,Riverview,38.9072,-77.0369
+111 Maplewood Avenue,2750,3,2,House,1450,1.9,High,Monthly,Furnished,Residential,2023-09-04,41,Greenbelt,Woodland,37.7749,-122.4194

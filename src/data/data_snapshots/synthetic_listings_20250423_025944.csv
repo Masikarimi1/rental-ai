@@ -1,0 +1,24 @@
+Address,Rent,Beds,Baths,Type,Area_in_sqft,Rent_per_sqft,Rent_category,Frequency,Furnishing,Purpose,Posted_date,Age_of_listing_in_days,Location,City,Latitude,Longitude
+"Cherrywoods, Dubailand, Dubai",200000,3,4,Townhouse,2232,89.61,High,Yearly,Unfurnished,For Rent,03-01-2024,109,Dubailand,Dubai,25.05865715,55.24599921
+"DAMAC Heights, Dubai Marina, Dubai",360000,3,4,Apartment,1948,184.8,High,Yearly,Furnished,For Rent,03-01-2024,109,Dubai Marina,Dubai,25.0786415,55.1352524
+123 Maple Street,1500,2,1,Apartment,800,1.875,Medium,Monthly,Unfurnished,Residential,2023-10-10,5,Downtown,Springfield,39.7817,-89.6501
+456 Oak Avenue,950,1,1,Condo,500,1.9,Low,Monthly,Partially Furnished,Residential,2023-09-30,15,Suburb,Greenville,34.8526,-82.394
+789 Pine Road,2500,3,2,House,1200,2.083,High,Monthly,Furnished,Residential,2023-10-08,7,Uptown,Metropolis,40.7128,-74.006
+321 Elm Lane,1200,2,1,Apartment,850,1.412,Medium,Monthly,Unfurnished,Residential,2023-10-12,3,Midtown,Riverdale,37.7749,-122.4194
+654 Spruce Circle,1800,3,2,Townhouse,1100,1.636,Medium,Monthly,Unfurnished,Residential,2023-09-25,20,Suburb,Hilltown,41.8781,-87.6298
+987 Cedar Street,3000,4,3,House,2000,1.5,High,Monthly,Partially Furnished,Residential,2023-10-01,14,Countryside,Lakeside,34.0522,-118.2437
+159 Birch Boulevard,2200,3,2,Duplex,1600,1.375,High,Monthly,Furnished,Residential,2023-10-06,9,Downtown,Aurora,39.7392,-104.9903
+246 Willow Way,1000,1,1,Studio,450,2.222,Medium,Monthly,Partially Furnished,Residential,2023-10-11,4,Uptown,Gotham,40.7128,-74.006
+853 Aspen Alley,1350,2,1,Apartment,750,1.8,Medium,Monthly,Furnished,Residential,2023-09-28,17,Midtown,Central City,38.9072,-77.0369
+367 Palm Plaza,950,1,1,Condo,600,1.583,Low,Monthly,Unfurnished,Residential,2023-10-05,10,Suburb,Star City,36.1627,-86.7816
+741 Chestnut Court,2700,3,3,House,1500,1.8,High,Monthly,Furnished,Residential,2023-10-03,12,Countryside,Smallville,37.7749,-122.4194
+852 Poplar Path,1600,2,2,Apartment,900,1.778,Medium,Monthly,Partially Furnished,Residential,2023-09-29,16,Uptown,Metropolis,34.0522,-118.2437
+963 Redwood Road,2100,3,2,Townhouse,1400,1.5,High,Monthly,Furnished,Residential,2023-10-02,13,Downtown,Starling City,41.8781,-87.6298
+258 Fir Street,800,1,1,Studio,400,2.0,Low,Monthly,Unfurnished,Residential,2023-10-09,6,Midtown,Gotham,40.7128,-74.006
+147 Cypress Crescent,1100,2,1,Condo,700,1.571,Medium,Monthly,Partially Furnished,Residential,2023-10-07,8,Suburb,Central City,38.9072,-77.0369
+369 Magnolia Drive,950,1,1,Apartment,600,1.583,Low,Monthly,Unfurnished,Residential,2023-10-04,11,Uptown,Hilltown,36.1627,-86.7816
+753 Hickory Hill,1400,2,1,Apartment,750,1.867,Medium,Monthly,Furnished,Residential,2023-09-27,18,Downtown,Riverdale,37.7749,-122.4194
+951 Maple Court,2300,3,2,House,1300,1.769,High,Monthly,Partially Furnished,Residential,2023-09-26,19,Countryside,Smallville,34.0522,-118.2437
+864 Juniper Junction,2000,3,2,Townhouse,1250,1.6,High,Monthly,Furnished,Residential,2023-10-11,4,Midtown,Aurora,39.7392,-104.9903
+432 Pinecone Place,1700,2,2,Apartment,1000,1.7,Medium,Monthly,Partially Furnished,Residential,2023-10-01,14,Uptown,Star City,36.1627,-86.7816
+777 Walnut Way,1150,1,1,Condo,550,2.091,Medium,Monthly,Unfurnished,Residential,2023-10-10,5,Suburb,Metropolis,40.7128,-74.006

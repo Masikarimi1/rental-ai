@@ -1,0 +1,24 @@
+Address,Rent,Beds,Baths,Type,Area_in_sqft,Rent_per_sqft,Rent_category,Frequency,Furnishing,Purpose,Posted_date,Age_of_listing_in_days,Location,City,Latitude,Longitude
+"Cherrywoods, Dubailand, Dubai",200000,3,4,Townhouse,2232,89.61,High,Yearly,Unfurnished,For Rent,03-01-2024,109,Dubailand,Dubai,25.05865715,55.24599921
+"DAMAC Heights, Dubai Marina, Dubai",360000,3,4,Apartment,1948,184.8,High,Yearly,Furnished,For Rent,03-01-2024,109,Dubai Marina,Dubai,25.0786415,55.1352524
+123 Elm Street,1200,2,1,Apartment,800,1.5,Medium,Monthly,Unfurnished,Residential,2023-09-15,45,Downtown,Springfield,39.7817,-89.6501
+456 Maple Avenue,3000,4,3,House,2000,1.5,High,Monthly,Furnished,Residential,2023-10-01,29,Uptown,Springfield,39.799,-89.644
+789 Oak Lane,850,1,1,Condo,600,1.42,Low,Monthly,Semi-furnished,Residential,2023-10-10,20,Suburban,Springfield,39.808,-89.632
+321 Pine Street,2200,3,2,Townhouse,1500,1.47,Medium,Monthly,Unfurnished,Residential,2023-08-25,66,Downtown,Metropolis,37.114,-88.732
+654 Cedar Drive,1800,2,2,Apartment,1000,1.8,Medium,Monthly,Furnished,Residential,2023-10-05,25,City Center,Metropolis,37.109,-88.731
+987 Spruce Road,950,1,1,Studio,500,1.9,Low,Monthly,Semi-furnished,Residential,2023-09-20,40,Suburban,Metropolis,37.115,-88.72
+159 Birch Boulevard,2750,3,2,House,1800,1.53,High,Monthly,Unfurnished,Residential,2023-10-15,15,Uptown,Gotham,40.7128,-74.006
+753 Cherry Court,1200,2,1,Apartment,850,1.41,Medium,Monthly,Furnished,Residential,2023-09-30,30,City Center,Gotham,40.714,-74.009
+852 Willow Way,1650,2,2,Condo,1100,1.5,Medium,Monthly,Semi-furnished,Residential,2023-09-10,50,Downtown,Gotham,40.717,-74.002
+963 Aspen Alley,3200,4,3,House,2200,1.45,High,Monthly,Unfurnished,Residential,2023-10-08,22,Uptown,Star City,34.0522,-118.2437
+412 Maple Lane,1300,2,1,Apartment,750,1.73,Medium,Monthly,Unfurnished,Residential,2023-09-25,35,Suburban,Star City,34.046,-118.247
+321 Poplar Street,900,1,1,Studio,550,1.64,Low,Monthly,Semi-furnished,Residential,2023-10-12,18,Downtown,Star City,34.05,-118.25
+654 Palm Avenue,1450,2,1,Condo,900,1.61,Medium,Monthly,Furnished,Residential,2023-09-05,55,Uptown,Central City,37.7749,-122.4194
+987 Oak Avenue,4000,5,4,House,2500,1.6,High,Monthly,Unfurnished,Residential,2023-10-02,28,City Center,Central City,37.776,-122.417
+753 Willow Lane,1050,1,1,Studio,550,1.91,Low,Monthly,Semi-furnished,Residential,2023-10-14,16,Suburban,Central City,37.778,-122.414
+159 Cedar Boulevard,2750,3,2,Townhouse,1600,1.72,High,Monthly,Unfurnished,Residential,2023-09-18,42,Downtown,Keystone,38.627,-90.199
+321 Pine Avenue,950,1,1,Condo,600,1.58,Low,Monthly,Furnished,Residential,2023-10-04,26,Uptown,Keystone,38.626,-90.197
+654 Birch Way,1900,2,2,Apartment,1200,1.58,Medium,Monthly,Semi-furnished,Residential,2023-09-28,32,City Center,Keystone,38.625,-90.195
+987 Maple Street,3200,4,3,House,2100,1.52,High,Monthly,Unfurnished,Residential,2023-10-06,24,Suburban,Coast City,36.1699,-115.1398
+753 Cedar Avenue,1100,1,1,Studio,600,1.83,Low,Monthly,Semi-furnished,Residential,2023-09-22,38,Downtown,Coast City,36.17,-115.137
+159 Willow Street,2500,3,2,Condo,1400,1.79,Medium,Monthly,Furnished,Residential,2023-10-09,21,City Center,Coast City,36.168,-115.135

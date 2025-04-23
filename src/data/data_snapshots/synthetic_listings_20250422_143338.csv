@@ -1,0 +1,23 @@
+Address,Rent,Beds,Baths,Type,Area_in_sqft,Rent_per_sqft,Rent_category,Frequency,Furnishing,Purpose,Posted_date,Age_of_listing_in_days,Location,City,Latitude,Longitude
+"Cherrywoods, Dubailand, Dubai",200000,3,4.0,Townhouse,2232,89.61,High,Yearly,Unfurnished,For Rent,03-01-2024,109,Dubailand,Dubai,25.05865715,55.24599921
+"DAMAC Heights, Dubai Marina, Dubai",360000,3,4.0,Apartment,1948,184.8,High,Yearly,Furnished,For Rent,03-01-2024,109,Dubai Marina,Dubai,25.0786415,55.1352524
+"123 Elm St, Apt 4B",1800,2,1.0,Apartment,900,2.0,Medium,Monthly,Unfurnished,Residential,2023-10-12,10,Downtown,Metropolis,40.7128,-74.006
+456 Oak Lane,2500,3,2.0,House,1500,1.67,Medium,Monthly,Furnished,Residential,2023-10-07,15,Suburbia,Metropolis,40.7198,-74.016
+"789 Pine Rd, Unit 10",3000,2,2.0,Condo,1200,2.5,High,Monthly,Semi-furnished,Residential,2023-10-05,17,Riverside,Metropolis,40.7228,-74.026
+321 Birch St,1500,1,1.0,Apartment,750,2.0,Medium,Monthly,Unfurnished,Residential,2023-10-10,12,City Center,Metropolis,40.7328,-74.036
+654 Maple Ave,2200,3,1.5,Townhouse,1400,1.57,Medium,Monthly,Furnished,Residential,2023-10-15,7,Midtown,Metropolis,40.7428,-74.046
+"987 Cedar Blvd, Apt 2A",1300,1,1.0,Apartment,650,2.0,Low,Monthly,Unfurnished,Residential,2023-10-08,14,Uptown,Metropolis,40.7528,-74.056
+"159 Spruce St, Unit 5",2700,2,2.0,Condo,1350,2.0,High,Monthly,Furnished,Residential,2023-10-03,19,Eastside,Metropolis,40.7628,-74.066
+753 Willow Way,2000,3,1.5,House,1600,1.25,Medium,Monthly,Semi-furnished,Residential,2023-10-02,20,Westside,Metropolis,40.7728,-74.076
+"852 Chestnut Rd, Apt 7C",1800,2,1.0,Apartment,850,2.12,Medium,Monthly,Unfurnished,Residential,2023-10-01,21,Southside,Metropolis,40.7828,-74.086
+951 Poplar Ave,2400,3,2.0,Townhouse,1450,1.66,Medium,Monthly,Furnished,Residential,2023-10-09,13,Old Town,Metropolis,40.7928,-74.096
+"147 Cypress Rd, Unit 11",3200,2,2.0,Condo,1250,2.56,High,Monthly,Semi-furnished,Residential,2023-10-11,11,New Town,Metropolis,40.8028,-74.106
+369 Ash Blvd,1700,1,1.0,Apartment,800,2.13,Medium,Monthly,Unfurnished,Residential,2023-10-06,16,Central Park,Metropolis,40.8128,-74.116
+258 Fir Ln,2100,3,2.0,House,1550,1.35,Medium,Monthly,Furnished,Residential,2023-10-04,18,Little Italy,Metropolis,40.8228,-74.126
+"635 Redwood Dr, Apt 1A",1900,2,1.0,Apartment,950,2.0,Medium,Monthly,Unfurnished,Residential,2023-10-14,8,Chinatown,Metropolis,40.8328,-74.136
+741 Juniper St,2300,3,2.5,Townhouse,1500,1.53,Medium,Monthly,Furnished,Residential,2023-10-13,9,SoHo,Metropolis,40.8428,-74.146
+"853 Palm Ave, Unit 8",2900,2,2.0,Condo,1300,2.23,High,Monthly,Semi-furnished,Residential,2023-10-16,6,Meatpacking District,Metropolis,40.8528,-74.156
+369 Aspen Rd,1600,1,1.0,Apartment,750,2.13,Low,Monthly,Unfurnished,Residential,2023-10-18,4,Harlem,Metropolis,40.8628,-74.166
+951 Maplewood Ln,2800,3,2.0,House,1600,1.75,High,Monthly,Furnished,Residential,2023-10-17,5,Greenwich Village,Metropolis,40.8728,-74.176
+"147 Birchwood Ct, Apt 6D",2000,2,1.0,Apartment,800,2.5,Medium,Monthly,Unfurnished,Residential,2023-10-19,3,Tribeca,Metropolis,40.8828,-74.186
+258 Redwood Ave,1700,1,1.0,Apartment,700,2.43,Medium,Monthly,Unfurnished,Residential,2023-10-20,2,Upper East Side,Metropolis,40.8928,-74.196

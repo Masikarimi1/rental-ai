@@ -1,0 +1,24 @@
+Address,Rent,Beds,Baths,Type,Area_in_sqft,Rent_per_sqft,Rent_category,Frequency,Furnishing,Purpose,Posted_date,Age_of_listing_in_days,Location,City,Latitude,Longitude
+"Cherrywoods, Dubailand, Dubai",200000,3,4.0,Townhouse,2232,89.61,High,Yearly,Unfurnished,For Rent,03-01-2024,109,Dubailand,Dubai,25.05865715,55.24599921
+"DAMAC Heights, Dubai Marina, Dubai",360000,3,4.0,Apartment,1948,184.8,High,Yearly,Furnished,For Rent,03-01-2024,109,Dubai Marina,Dubai,25.0786415,55.1352524
+123 Maple St,1200,2,1.0,Apartment,800,1.5,Low,Monthly,Unfurnished,Residential,2023-10-01,5,Downtown,Springfield,39.7817,-89.6501
+456 Oak Ave,2500,3,2.0,House,1500,1.67,Medium,Monthly,Furnished,Residential,2023-09-25,11,Suburbs,Greenville,34.8526,-82.394
+789 Pine Rd,1800,2,1.5,Condo,1200,1.5,Low,Monthly,Semi-furnished,Residential,2023-09-28,8,City Center,Riverdale,33.571,-84.3585
+321 Elm St,3200,4,3.0,House,2000,1.6,Medium,Monthly,Unfurnished,Residential,2023-09-20,16,Suburban,Lakeview,41.9383,-87.6554
+654 Cedar Dr,900,1,1.0,Apartment,600,1.5,Low,Monthly,Furnished,Residential,2023-10-02,4,Downtown,Brookfield,43.0606,-88.1065
+987 Birch Ln,2900,3,2.5,House,1800,1.61,Medium,Monthly,Semi-furnished,Residential,2023-09-22,14,Countryside,Fairview,36.1628,-86.7816
+159 Oakwood Ct,4500,5,4.0,Villa,3000,1.5,High,Monthly,Furnished,Residential,2023-10-03,3,Luxury Estates,Westfield,40.042,-86.1275
+753 Willow Ln,2600,3,2.0,Townhouse,1400,1.86,High,Monthly,Unfurnished,Residential,2023-09-27,9,Urban,Riverside,33.9533,-117.3961
+852 Spruce St,1100,1,1.0,Studio,550,2.0,Medium,Monthly,Furnished,Residential,2023-09-29,7,City Center,Evergreen,39.6333,-105.3172
+951 Main St,3500,3,2.5,Penthouse,1900,1.84,High,Monthly,Semi-furnished,Residential,2023-09-30,6,Downtown,Metropolis,38.627,-90.1994
+678 Aspen Rd,1300,2,1.0,Apartment,900,1.44,Low,Monthly,Unfurnished,Residential,2023-10-01,5,Suburban,Hillcrest,40.7128,-74.006
+543 Lakeview Dr,4000,4,3.5,Villa,2500,1.6,High,Monthly,Furnished,Residential,2023-09-21,15,Lakefront,Clearwater,27.9659,-82.8001
+102 Cherry Ln,2200,2,2.0,Condo,1100,2.0,Medium,Monthly,Semi-furnished,Residential,2023-09-23,13,Urban,Sunnyvale,37.3688,-122.0363
+789 Maple Ave,1500,2,1.5,Apartment,1000,1.5,Low,Monthly,Unfurnished,Residential,2023-09-24,12,Downtown,Mapleton,40.1634,-111.5789
+246 Birch Blvd,2700,3,2.0,House,1600,1.69,Medium,Monthly,Furnished,Residential,2023-09-19,17,Suburban,Greenwood,39.6137,-86.1067
+135 Pine St,1000,1,1.0,Studio,500,2.0,Medium,Monthly,Semi-furnished,Residential,2023-10-04,2,City Center,Riverside,33.9533,-117.3961
+369 Elmwood Dr,3200,4,3.0,House,1900,1.68,Medium,Monthly,Unfurnished,Residential,2023-09-18,18,Countryside,Meadowville,38.9717,-95.2353
+147 Willow St,1400,2,1.0,Apartment,950,1.47,Low,Monthly,Furnished,Residential,2023-09-26,10,Urban,Cedarville,40.102,-83.8088
+258 Oak St,3400,3,2.5,Penthouse,1800,1.89,High,Monthly,Semi-furnished,Residential,2023-10-05,1,Downtown,Oakland,37.8044,-122.2712
+369 Birch Ave,2300,2,1.5,Condo,1150,2.0,Medium,Monthly,Unfurnished,Residential,2023-09-17,19,City Center,Sunnydale,37.3688,-122.0363
+741 Cedar Blvd,2800,3,2.0,Townhouse,1500,1.87,High,Monthly,Furnished,Residential,2023-09-16,20,Suburban,Mapleton,40.1634,-111.5789
