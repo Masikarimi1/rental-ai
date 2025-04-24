@@ -1,6 +1,6 @@
-// ui1/src/hooks/useAgentPolling.js
+// /gebral-Estate/ui/src/hooks/useAgentPolling.js
 import { useState, useEffect, useCallback, useRef } from 'react';
-import { fetchAgentData } from '@utils/api';
+import { fetchInsights } from '@utils/api';
 
 export const useAgentPolling = (agentType, intervalMs = 300000) => {
   const [data, setData] = useState(null);
@@ -15,12 +15,30 @@ export const useAgentPolling = (agentType, intervalMs = 300000) => {
       setIsLoading(true);
       setError(null);
       
-      // Map agent types to correct API endpoints
-      const endpoint = getAgentEndpoint(agentType);
-      const result = await fetchAgentData(endpoint);
+      // Fetch from insights API - this endpoint returns all agent data
+      const insights = await fetchInsights(agentType);
       
-      setData(result);
-      setLastUpdated(new Date());
+      // Process insights based on the agent type
+      if (insights) {
+        if (Array.isArray(insights)) {
+          // Find the matching agent if we have an array of agents
+          const agentData = insights.find(item => 
+            item.agent.toLowerCase().includes(agentType.toLowerCase())
+          );
+          
+          if (agentData) {
+            setData(agentData.output);
+          } else {
+            // If no specific agent data found, but we have insights data
+            setData(insights[0]?.output || null);
+          }
+        } else {
+          // If insights is not an array, use it directly
+          setData(insights.output || insights);
+        }
+        
+        setLastUpdated(new Date());
+      }
     } catch (err) {
       setError(err.message || 'Failed to fetch data');
       console.error(`Error fetching data for ${agentType}:`, err);
@@ -28,20 +46,6 @@ export const useAgentPolling = (agentType, intervalMs = 300000) => {
       setIsLoading(false);
     }
   }, [agentType]);
-  
-  // Helper to map agent types to API endpoints
-  const getAgentEndpoint = (type) => {
-    const mapping = {
-      'trend-spotter': '/results?agent=TrendSpotter',
-      'roi-forecaster': '/results?agent=ROI%20Forecaster',
-      'price-advisor': '/results?agent=Action%20Brief%20Generator',
-      'news-intelligence': '/results?agent=The%20Real%20Estate%20News%20Intelligence%20Analyst',
-      'vacancy-metrics': '/results?agent=Vacancy%20Analyst',
-      'chat': '/query'
-    };
-    
-    return mapping[type] || type;
-  };
   
   const startPolling = useCallback(() => {
     if (!isPolling) {
@@ -87,3 +91,5 @@ export const useAgentPolling = (agentType, intervalMs = 300000) => {
     isPolling,
   };
 };
+
+export default useAgentPolling;

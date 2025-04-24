@@ -6,6 +6,7 @@ import Button from '../common/Button';
 import GlassCard from '../common/GlassCard';
 import ChatMessage from './ChatMessage';
 import { usePersona } from '@hooks/usePersona';
+import { sendChatQuery } from '@utils/api';
 
 const StrategyAgentChat = () => {
   const [messages, setMessages] = useState([]);
@@ -51,7 +52,7 @@ const StrategyAgentChat = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
-  const handleSendMessage = () => {
+  const handleSendMessage = async () => {
     if (inputValue.trim() === '') return;
     
     // Add user message
@@ -66,43 +67,34 @@ const StrategyAgentChat = () => {
     setInputValue('');
     setIsTyping(true);
     
-    // Simulate agent response after a delay
-    setTimeout(() => {
-      const agentResponses = {
-        'What\'s the best area to invest in right now?': 
-          "Based on the latest market data, Dubai Marina is showing the strongest ROI potential at 10.87%. " +
-          "This area has seen a 12.3% increase in rental rates over the past quarter, driven by the new metro expansion. " +
-          "Jumeirah Village Circle (JVC) is also emerging as a hotspot with good value prospects and upcoming infrastructure improvements.",
-        
-        'How should I price vacant units in Al Barsha?': 
-          "For your Al Barsha 2-bedroom units that have been vacant for 28 days, I recommend reducing the listing price by 5% from AED 85,000 to AED 80,750. " +
-          "The market in this area is showing a decline in demand, with competitive properties recently adjusting their prices downward. " +
-          "Alternatively, maintaining the current price point but offering one month rent-free on a 12-month contract could be effective without impacting your headline rate.",
-        
-        'Analyze the impact of the new metro line': 
-          "The new Green Metro Corridor announced by Dubai yesterday will significantly impact property values within a 1km radius of stations. " +
-          "Historical data from previous metro expansions shows an average 15-20% appreciation in property values over a 24-month period following completion. " +
-          "Areas directly affected include Dubai Marina and U-D Marino, which should see increased rental demand and corresponding rent increases. " +
-          "I recommend adjusting your development pipeline to prioritize projects with proximity to the new stations."
-      };
+    try {
+      // Send message to API and get response
+      const response = await sendChatQuery(inputValue.trim());
       
-      // Find a matching response or generate a default one
-      let responseContent = agentResponses[userMessage.content];
-      
-      if (!responseContent) {
-        responseContent = `Thank you for your query. Based on my analysis of the Dubai real estate market, I can provide insights tailored to your role as a ${currentPersona.role}. Would you like me to analyze specific data points or provide general market recommendations?`;
-      }
-      
+      // Create agent message from API response
       const agentMessage = {
         id: Date.now() + 1,
-        content: responseContent,
+        content: response.result || "I'm sorry, I couldn't process that request.",
         sender: 'agent',
         timestamp: new Date()
       };
       
       setMessages(prev => [...prev, agentMessage]);
+    } catch (error) {
+      console.error("Error sending message:", error);
+      
+      // Create error message
+      const errorMessage = {
+        id: Date.now() + 1,
+        content: "I'm sorry, there was an error processing your request. Please try again.",
+        sender: 'agent',
+        timestamp: new Date()
+      };
+      
+      setMessages(prev => [...prev, errorMessage]);
+    } finally {
       setIsTyping(false);
-    }, 1500);
+    }
   };
 
   const handleKeyDown = (e) => {
@@ -206,7 +198,7 @@ const StrategyAgentChat = () => {
               <button 
                 className="p-2 rounded-full bg-primary hover:bg-primary-dark text-white disabled:opacity-50"
                 onClick={handleSendMessage}
-                disabled={inputValue.trim() === ''}
+                disabled={inputValue.trim() === '' || isTyping}
               >
                 <PaperAirplaneIcon className="w-5 h-5" />
               </button>

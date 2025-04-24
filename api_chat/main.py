@@ -1,8 +1,6 @@
-# main.py (FastAPI application)
-# api_chat/main.py
-# -----------------------------
-
+# /gebral-Estate/api_chat/main.py
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import Dict, Any
 from dotenv import load_dotenv
@@ -12,7 +10,6 @@ load_dotenv()
 
 # Import your LangChain RetrievalQA chain builder
 from scripts.langchain_retrieval import build_qa_chain
-from langchain_core.documents import Document  # Import the Document type
 
 app = FastAPI(
     title="Chat API",
@@ -21,6 +18,15 @@ app = FastAPI(
     root_path="/chat",
     docs_url="/docs",
     redoc_url=None
+)
+
+# Add CORS middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Allow all origins in development
+    allow_credentials=True,
+    allow_methods=["*"],  # Allow all methods
+    allow_headers=["*"],  # Allow all headers
 )
 
 # Initialize the LangChain QA chain when the FastAPI app starts
@@ -44,8 +50,6 @@ async def query_langchain(request: QueryRequest):
     """
     try:
         result = qa_chain({"query": request.query})
-
-
         return QueryResponse(result=result["result"])
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))

@@ -1,6 +1,6 @@
-# api_feedback/main.py
-
+# /gebral-Estate/api_feedback/main.py
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 from pathlib import Path
 from datetime import datetime
@@ -19,6 +19,15 @@ app = FastAPI(
     root_path="/apifeedback",
     docs_url="/docs",
     redoc_url=None
+)
+
+# Add CORS middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Allow all origins in development
+    allow_credentials=True,
+    allow_methods=["*"],  # Allow all methods
+    allow_headers=["*"],  # Allow all headers
 )
 
 class Feedback(BaseModel):

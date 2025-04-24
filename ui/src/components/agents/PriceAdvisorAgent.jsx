@@ -1,4 +1,4 @@
-// ui1/src/components/agents/PriceAdvisorAgent.jsx
+// /gebral-Estate/ui/src/components/agents/PriceAdvisorAgent.jsx
 import React, { useState, useEffect } from 'react';
 import Card from '../common/Card';
 import Button from '../common/Button';
@@ -16,6 +16,7 @@ import {
 import { useAgentPolling } from '@hooks/useAgentPolling';
 import { formatCurrency, formatDate } from '@utils/formatting';
 import LiveUpdateNotification from '../common/LiveUpdateNotification';
+import { sendAgentFeedback } from '@utils/api';
 
 const PriceAdvisorAgent = ({ initialProperty }) => {
   const [isApplied, setIsApplied] = useState(false);
@@ -43,7 +44,6 @@ const PriceAdvisorAgent = ({ initialProperty }) => {
       price_trend_3m: -3.2
     }
   };
-  console.log(data);
 
   // Update property when data changes
   useEffect(() => {
@@ -73,18 +73,29 @@ const PriceAdvisorAgent = ({ initialProperty }) => {
     applyRecommendation();
   };
   
-  const applyRecommendation = () => {
-    setIsApplied(true);
-    setShowNotification(true);
-    setShowApprovalAlert(false);
-    
-    // In a real app, this would send the recommendation and feedback to the backend
-    console.log("Applied recommendation with feedback:", feedbackText);
-    
-    // Reset feedback text after submission
-    setFeedbackText('');
+  const applyRecommendation = async () => {
+    try {
+      setIsApplied(true);
+      setShowNotification(true);
+      setShowApprovalAlert(false);
+      
+      // Send feedback to the API about the applied recommendation
+      await sendAgentFeedback({
+        agent_name: 'PriceAdvisorTool',
+        rating: 'like',
+        message: feedbackText.trim() || `Applied ${property.recommendation_percentage}% ${property.recommendation_type} recommendation for ${property.address}`
+      });
+      
+      console.log("Applied recommendation with feedback:", feedbackText);
+      
+      // Reset feedback text after submission
+      setFeedbackText('');
+    } catch (error) {
+      console.error("Error applying recommendation:", error);
+      // Show error notification if needed
+    }
   };
-  
+
   // If property is null, show loading
   if (!property) {
     return (
@@ -194,7 +205,7 @@ const PriceAdvisorAgent = ({ initialProperty }) => {
               )}
             </div>
             
-            {/* New feedback textarea */}
+            {/* Feedback textarea */}
             {!isApplied && (
               <div className="mt-4">
                 <textarea

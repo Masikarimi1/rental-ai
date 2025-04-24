@@ -1,4 +1,4 @@
-// ui1/src/components/dashboard/LiveLogs.jsx
+// /gebral-Estate/ui/src/components/dashboard/LiveLogs.jsx
 import React, { useState, useEffect } from 'react';
 import GlassCard from '../common/GlassCard';
 import Button from '../common/Button';
@@ -110,27 +110,28 @@ const LiveLogs = () => {
     }
   };
 
-  const submitFeedback = (logId) => {
+  const submitFeedback = async (logId) => {
     if (!feedbackText.trim()) return;
 
     const log = logs.find((l) => l.id === logId);
+    if (!log) return;
+    
     const agentName = log?.agent || 'UnknownAgent';
     const rating = log.feedback === 'up' ? 'like' : 'dislike';
 
-    sendAgentFeedback({
-      agent_name: agentName,
-      rating: rating,
-      message: feedbackText.trim(),
-    })
-      .then((response) => {
-        console.log("Feedback submitted:", response);
-      })
-      .catch((error) => {
-        console.error("Error submitting feedback:", error);
+    try {
+      await sendAgentFeedback({
+        agent_name: agentName,
+        rating: rating,
+        message: feedbackText.trim(),
       });
-
-    setExpandedFeedback(null);
-    setFeedbackText('');
+      
+      console.log("Detailed feedback submitted successfully");
+      setExpandedFeedback(null);
+      setFeedbackText('');
+    } catch (error) {
+      console.error("Error submitting detailed feedback:", error);
+    }
   };
 
   return (
