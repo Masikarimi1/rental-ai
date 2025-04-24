@@ -1,7 +1,7 @@
 // /gebral-Estate/ui/src/components/chat/StrategyAgentChat.jsx
 import React, { useState, useRef, useEffect } from 'react';
-import { PaperAirplaneIcon, MicrophoneIcon, PlusIcon } from '@heroicons/react/24/outline';
-import { BoltIcon } from '@heroicons/react/20/solid';
+import { PaperAirplaneIcon, MicrophoneIcon, PlusIcon, InformationCircleIcon } from '@heroicons/react/24/outline';
+import { BoltIcon, ExclamationCircleIcon } from '@heroicons/react/20/solid';
 import Button from '../common/Button';
 import GlassCard from '../common/GlassCard';
 import ChatMessage from './ChatMessage';
@@ -12,6 +12,7 @@ const StrategyAgentChat = () => {
   const [messages, setMessages] = useState([]);
   const [inputValue, setInputValue] = useState('');
   const [isTyping, setIsTyping] = useState(false);
+  const [apiError, setApiError] = useState(null);
   const { currentPersona } = usePersona();
   const messagesEndRef = useRef(null);
 
@@ -52,8 +53,21 @@ const StrategyAgentChat = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
+  // Clear API error after 10 seconds
+  useEffect(() => {
+    if (apiError) {
+      const timer = setTimeout(() => {
+        setApiError(null);
+      }, 10000);
+      return () => clearTimeout(timer);
+    }
+  }, [apiError]);
+
   const handleSendMessage = async () => {
     if (inputValue.trim() === '') return;
+    
+    // Clear any previous error
+    setApiError(null);
     
     // Add user message
     const userMessage = {
@@ -83,10 +97,13 @@ const StrategyAgentChat = () => {
     } catch (error) {
       console.error("Error sending message:", error);
       
+      // Set API error for display
+      setApiError(error.message || "Network error. Please check your connection.");
+      
       // Create error message
       const errorMessage = {
         id: Date.now() + 1,
-        content: "I'm sorry, there was an error processing your request. Please try again.",
+        content: "I'm sorry, there was an error connecting to my intelligence engine. I'm working with limited capabilities at the moment. Please try again later or ask a different question.",
         sender: 'agent',
         timestamp: new Date()
       };
@@ -123,7 +140,24 @@ const StrategyAgentChat = () => {
               <p className="text-xs text-gray-light">AI assistant for real estate decisions</p>
             </div>
           </div>
+          
+          {apiError && (
+            <div className="text-sm text-danger flex items-center">
+              <ExclamationCircleIcon className="w-4 h-4 mr-1" />
+              <span>Connection error</span>
+            </div>
+          )}
         </div>
+        
+        {apiError && (
+          <div className="bg-danger/10 p-3 border-b border-danger/20 flex items-start">
+            <ExclamationCircleIcon className="w-5 h-5 text-danger mr-2 flex-shrink-0 mt-0.5" />
+            <div>
+              <p className="text-sm font-medium text-danger">Connection Error</p>
+              <p className="text-xs text-gray-light mt-1">{apiError}</p>
+            </div>
+          </div>
+        )}
         
         <div className="flex-1 overflow-y-auto p-4 space-y-4">
           {messages.length === 0 ? (
@@ -186,6 +220,7 @@ const StrategyAgentChat = () => {
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
               onKeyDown={handleKeyDown}
+              disabled={isTyping}
             />
             
             <div className="absolute right-2 bottom-2 flex items-center space-x-2">
@@ -196,7 +231,7 @@ const StrategyAgentChat = () => {
                 <MicrophoneIcon className="w-5 h-5" />
               </button>
               <button 
-                className="p-2 rounded-full bg-primary hover:bg-primary-dark text-white disabled:opacity-50"
+                className="p-2 rounded-full bg-primary hover:bg-primary-dark text-white disabled:opacity-50 disabled:bg-gray-dark disabled:cursor-not-allowed"
                 onClick={handleSendMessage}
                 disabled={inputValue.trim() === '' || isTyping}
               >
@@ -204,6 +239,13 @@ const StrategyAgentChat = () => {
               </button>
             </div>
           </div>
+          
+          {apiError && (
+            <div className="flex items-center mt-2 text-xs text-gray-light">
+              <InformationCircleIcon className="w-4 h-4 mr-1" />
+              <span>Experiencing connection issues with the AI service. Using fallback responses.</span>
+            </div>
+          )}
         </div>
       </GlassCard>
     </div>

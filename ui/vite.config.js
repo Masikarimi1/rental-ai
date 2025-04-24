@@ -27,20 +27,32 @@ export default defineConfig(({ mode }) => {
     server: {
       host: env.VITE_HOST || 'localhost',
       port: parseInt(env.VITE_PORT) || 5173,
+      https: env.VITE_USE_HTTPS === 'true', // Enable HTTPS when configured
       proxy: {
-        '/query': {
+        '/api/chat': {
           target: env.VITE_API_CHAT_URL || 'http://localhost:8000',
           changeOrigin: true,
+          secure: false,
+          rewrite: (path) => path.replace(/^\/api\/chat/, ''),
         },
-        '/results': {
+        '/api/insights': {
           target: env.VITE_API_INSIGHTS_URL || 'http://localhost:8080',
           changeOrigin: true,
+          secure: false,
+          rewrite: (path) => path.replace(/^\/api\/insights/, ''),
+        },
+        '/api/feedback': {
+          target: env.VITE_API_FEEDBACK_URL || 'http://localhost:8003',
+          changeOrigin: true,
+          secure: false,
+          rewrite: (path) => path.replace(/^\/api\/feedback/, ''),
         }
       },
     },
     preview: {
       host: env.VITE_HOST || 'localhost',
       port: parseInt(env.VITE_PORT) || 5173,
+      https: env.VITE_USE_HTTPS === 'true', // Enable HTTPS for preview too
       allowedHosts: env.VITE_ALLOWED_HOSTS?.split(',') || [],
     }
   };

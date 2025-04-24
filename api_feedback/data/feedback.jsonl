@@ -27,3 +27,7 @@
 {"timestamp": "2025-04-24T07:54:11Z", "agent_name": "InsightAgent", "rating": "dislike", "message": "good"}
 {"timestamp": "2025-04-24T07:54:14Z", "agent_name": "InsightAgent", "rating": "like", "message": "User liked the recommendation"}
 {"timestamp": "2025-04-24T07:54:15Z", "agent_name": "ScrapeAgent", "rating": "dislike", "message": "User disliked the recommendation"}
+{"timestamp": "2025-04-24T08:46:56Z", "agent_name": "PriceAdvisorTool", "rating": "like", "message": "good"}
+{"timestamp": "2025-04-24T08:47:03Z", "agent_name": "StrategyAgent", "rating": "like", "message": "User liked the recommendation"}
+{"timestamp": "2025-04-24T08:47:05Z", "agent_name": "InsightAgent", "rating": "dislike", "message": "User disliked the recommendation"}
+{"timestamp": "2025-04-24T08:47:12Z", "agent_name": "ScrapeAgent", "rating": "dislike", "message": "like"}
