@@ -1,4 +1,4 @@
-// /gebral-Estate/ui/src/components/dashboard/LiveLogs.jsx
+// ui/src/components/dashboard/LiveLogs.jsx
 import React, { useState, useEffect } from 'react';
 import GlassCard from '../common/GlassCard';
 import Button from '../common/Button';
@@ -66,6 +66,19 @@ const LiveLogs = () => {
       // Find the log
       const log = logs.find((l) => l.id === logId);
       if (!log) return;
+
+      // Only allow changing feedback if different from current
+      if (log.feedback === type) {
+        // Toggle off if clicking the same feedback
+        setLogs(prevLogs => 
+          prevLogs.map(log => 
+            log.id === logId 
+              ? { ...log, feedback: null } 
+              : log
+          )
+        );
+        return;
+      }
 
       // Update UI immediately
       setLogs(prevLogs => 
@@ -135,89 +148,122 @@ const LiveLogs = () => {
   };
 
   return (
-    <GlassCard>
+    <GlassCard className="relative">
+      {/* Loading overlay */}
+      {isLoading && (
+        <div className="absolute inset-0 bg-dark-deeper/30 backdrop-blur-sm flex items-center justify-center rounded-lg z-10">
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+        </div>
+      )}
+      
       <div className="flex items-center justify-between mb-4">
-        <h3 className="font-semibold">Live logs</h3>
+        <h3 className="font-semibold flex items-center">
+          <div className="relative mr-2">
+            <div className="w-2 h-2 bg-primary rounded-full absolute"></div>
+            <div className="w-2 h-2 bg-primary rounded-full animate-ping"></div>
+          </div>
+          Live logs
+        </h3>
         
-        {isLoading ? (
-          <div className="animate-pulse text-xs text-gray-light">Updating...</div>
-        ) : (
-          <button 
-            onClick={fetchData}
-            className="text-xs text-gray-light hover:text-white"
-          >
-            Refresh
-          </button>
-        )}
+        <button 
+          onClick={fetchData}
+          className="text-xs text-gray-light hover:text-white transition-colors duration-200 
+                     hover:bg-white/10 px-2 py-1 rounded flex items-center"
+          disabled={isLoading}
+        >
+          <span className="mr-1">Refresh</span>
+          <svg className={`w-3 h-3 ${isLoading ? 'animate-spin' : ''}`} viewBox="0 0 24 24">
+            <path fill="currentColor" d="M12 4V2A10 10 0 0 0 2 12h2a8 8 0 0 1 8-8Z" />
+            <path fill="currentColor" d="M12 20v2a10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8Z" />
+          </svg>
+        </button>
       </div>
       
       <div className="space-y-4">
-        {logs.map((log, index) => (
-          <div key={log.id || index} className={index < logs.length - 1 ? "pb-4 border-b border-white/10" : ""}>
-            <div className="text-sm text-gray-light mb-1 flex justify-between">
-              <div>
-                <ClockIcon className="w-4 h-4 inline mr-1" />
-                {log.time}
-              </div>
-              
-              {/* Thumbs up/down buttons */}
-              <div className="flex space-x-2">
-                <button 
-                  className={`p-1 rounded hover:bg-white/10 ${log.feedback === 'up' ? 'text-success' : 'text-gray-light'}`}
-                  onClick={() => handleFeedbackClick('up', log.id)}
-                  type="button"
-                >
-                  <HandThumbUpIcon className="w-4 h-4" />
-                </button>
-                <button 
-                  className={`p-1 rounded hover:bg-white/10 ${log.feedback === 'down' ? 'text-danger' : 'text-gray-light'}`}
-                  onClick={() => handleFeedbackClick('down', log.id)}
-                  type="button"
-                >
-                  <HandThumbDownIcon className="w-4 h-4" />
-                </button>
-                <button 
-                  className="p-1 rounded hover:bg-white/10 text-gray-light"
-                  onClick={() => toggleFeedbackInput(log.id)}
-                  type="button"
-                >
-                  {expandedFeedback === log.id ? (
-                    <XMarkIcon className="w-4 h-4" />
-                  ) : (
-                    <span className="text-xs">Feedback</span>
-                  )}
-                </button>
-              </div>
-            </div>
-            
-            <div className="font-medium">{log.agent}</div>
-            <div className="text-sm text-gray-light mt-1">{log.action}</div>
-            
-            {/* Feedback input area */}
-            {expandedFeedback === log.id && (
-              <div className="mt-2 relative">
-                <textarea 
-                  className="w-full bg-white/5 border border-white/10 rounded-lg py-1 px-2 text-sm focus:outline-none focus:border-primary-light"
-                  placeholder="Add your feedback..."
-                  rows="2"
-                  value={feedbackText}
-                  onChange={(e) => setFeedbackText(e.target.value)}
-                ></textarea>
-                <button 
-                  className="absolute right-2 bottom-2 text-primary hover:text-primary-light"
-                  onClick={() => submitFeedback(log.id)}
-                >
-                  <PaperAirplaneIcon className="w-4 h-4" />
-                </button>
-              </div>
-            )}
-          </div>
-        ))}
-        
-        {logs.length === 0 && (
-          <div className="text-center py-4 text-gray-light">
+        {logs.length === 0 ? (
+          <div className="text-center py-4 text-gray-light animate-pulse">
             No logs available
           </div>
+        ) : (
+          logs.map((log, index) => (
+            <div 
+              key={log.id || index} 
+              className={`${index < logs.length - 1 ? "pb-4 border-b border-white/10" : ""} 
+                          transition-all duration-300 ${expandedFeedback === log.id ? 'bg-white/5 p-3 -mx-3 rounded-lg' : ''}`}
+            >
+              <div className="text-sm text-gray-light mb-1 flex justify-between">
+                <div className="flex items-center">
+                  <ClockIcon className="w-4 h-4 inline mr-1" />
+                  {log.time}
+                </div>
+                
+                {/* Thumbs up/down buttons */}
+                <div className="flex space-x-2">
+                  <button 
+                    className={`p-1 rounded transition-all duration-200 
+                                ${log.feedback === 'up' 
+                                  ? 'text-success bg-success/10 feedback-btn liked' 
+                                  : 'text-gray-light hover:bg-white/10 feedback-btn'}`}
+                    onClick={() => handleFeedbackClick('up', log.id)}
+                    type="button"
+                    aria-label="Like"
+                  >
+                    <HandThumbUpIcon className={`w-4 h-4 transform transition-transform ${log.feedback === 'up' ? 'scale-110' : ''}`} />
+                  </button>
+                  <button 
+                    className={`p-1 rounded transition-all duration-200 
+                                ${log.feedback === 'down' 
+                                  ? 'text-danger bg-danger/10 feedback-btn disliked' 
+                                  : 'text-gray-light hover:bg-white/10 feedback-btn'}`}
+                    onClick={() => handleFeedbackClick('down', log.id)}
+                    type="button"
+                    aria-label="Dislike"
+                  >
+                    <HandThumbDownIcon className={`w-4 h-4 transform transition-transform ${log.feedback === 'down' ? 'scale-110' : ''}`} />
+                  </button>
+                  <button 
+                    className={`p-1 rounded transition-all duration-200 
+                                ${expandedFeedback === log.id 
+                                  ? 'text-primary bg-primary/10 feedback-btn active' 
+                                  : 'text-gray-light hover:bg-white/10 feedback-btn'}`}
+                    onClick={() => toggleFeedbackInput(log.id)}
+                    type="button"
+                    aria-label={expandedFeedback === log.id ? "Close feedback" : "Add feedback"}
+                  >
+                    {expandedFeedback === log.id ? (
+                      <XMarkIcon className="w-4 h-4 animate-scale" />
+                    ) : (
+                      <span className="text-xs">Feedback</span>
+                    )}
+                  </button>
+                </div>
+              </div>
+              
+              <div className="font-medium">{log.agent}</div>
+              <div className="text-sm text-gray-light mt-1">{log.action}</div>
+              
+              {/* Feedback input area with animation */}
+              {expandedFeedback === log.id && (
+                <div className="mt-2 relative animate-slide-in">
+                  <textarea 
+                    className="w-full bg-white/5 border border-white/10 rounded-lg py-1 px-2 text-sm focus:outline-none focus:border-primary-light transition-colors duration-200"
+                    placeholder="Add your feedback..."
+                    rows="2"
+                    value={feedbackText}
+                    onChange={(e) => setFeedbackText(e.target.value)}
+                  ></textarea>
+                  <button 
+                    className="absolute right-2 bottom-2 text-primary hover:text-primary-light transition-colors duration-200"
+                    onClick={() => submitFeedback(log.id)}
+                    disabled={!feedbackText.trim()}
+                  >
+                    <PaperAirplaneIcon className={`w-4 h-4 transition-transform duration-200 
+                                                  ${feedbackText.trim() ? 'transform hover:translate-x-1' : 'opacity-50'}`} />
+                  </button>
+                </div>
+              )}
+            </div>
+          ))
         )}
       </div>
     </GlassCard>

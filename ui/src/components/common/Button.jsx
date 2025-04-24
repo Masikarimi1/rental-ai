@@ -1,5 +1,5 @@
-// /gebral-Estate/ui/src/components/common/Button.jsx
-import React from 'react';
+// ui/src/components/common/Button.jsx
+import React, { useState } from 'react';
 
 const Button = ({ 
   children, 
@@ -13,18 +13,24 @@ const Button = ({
   disabled = false,
   onClick,
   className = '',
-  type = 'button'
+  type = 'button',
+  activeState = false,
+  animationEffect = 'ripple' // 'ripple', 'scale', 'none'
 }) => {
+  const [isRippling, setIsRippling] = useState(false);
+  const [rippleX, setRippleX] = useState(0);
+  const [rippleY, setRippleY] = useState(0);
+
   const variantClasses = {
-    primary: 'bg-primary hover:bg-primary-dark text-white',
-    secondary: 'bg-secondary hover:bg-secondary-dark text-white',
-    success: 'bg-success hover:bg-success/90 text-white',
-    danger: 'bg-danger hover:bg-danger/90 text-white',
-    warning: 'bg-warning hover:bg-warning/90 text-white',
-    info: 'bg-info hover:bg-info/90 text-white',
-    ghost: 'bg-transparent hover:bg-white/10 text-gray-light hover:text-white',
-    outline: 'bg-transparent border border-gray-light hover:border-white text-gray-light hover:text-white',
-    glass: 'glass text-white hover:bg-white/10',
+    primary: 'bg-primary hover:bg-primary-dark text-white active:bg-primary-dark/90',
+    secondary: 'bg-secondary hover:bg-secondary-dark text-white active:bg-secondary-dark/90',
+    success: 'bg-success hover:bg-success/90 text-white active:bg-success/80',
+    danger: 'bg-danger hover:bg-danger/90 text-white active:bg-danger/80',
+    warning: 'bg-warning hover:bg-warning/90 text-white active:bg-warning/80',
+    info: 'bg-info hover:bg-info/90 text-white active:bg-info/80',
+    ghost: 'bg-transparent hover:bg-white/10 text-gray-light hover:text-white active:bg-white/15',
+    outline: 'bg-transparent border border-gray-light hover:border-white text-gray-light hover:text-white active:bg-white/5',
+    glass: 'glass text-white hover:bg-white/10 active:bg-white/15',
   };
   
   const sizeClasses = {
@@ -45,23 +51,65 @@ const Button = ({
   
   const widthClass = fullWidth ? 'w-full' : '';
   const disabledClass = disabled || isLoading ? 'opacity-60 cursor-not-allowed' : 'cursor-pointer';
+  const activeClass = activeState ? 'ring-2 ring-primary ring-opacity-50' : '';
+  
+  // Animation classes
+  const animationClass = animationEffect === 'scale' ? 'transform transition-transform active:scale-95' : '';
+  
+  const handleRipple = (e) => {
+    if (animationEffect !== 'ripple' || disabled || isLoading) return;
+    
+    const button = e.currentTarget;
+    const buttonRect = button.getBoundingClientRect();
+    
+    setRippleX(e.clientX - buttonRect.left);
+    setRippleY(e.clientY - buttonRect.top);
+    
+    setIsRippling(true);
+    
+    setTimeout(() => {
+      setIsRippling(false);
+    }, 600);
+  };
+  
+  const handleClick = (e) => {
+    handleRipple(e);
+    if (onClick && !disabled && !isLoading) {
+      onClick(e);
+    }
+  };
 
   return (
     <button
       type={type}
       disabled={disabled || isLoading}
       className={`
-        inline-flex items-center justify-center font-medium transition-colors duration-200
-        focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary focus:ring-opacity-50
+        relative overflow-hidden inline-flex items-center justify-center font-medium transition-colors duration-200
+        focus:outline-none ${activeClass}
         ${variantClasses[variant]}
         ${sizeClasses[size]}
         ${roundedClasses[rounded]}
         ${widthClass}
         ${disabledClass}
+        ${animationClass}
         ${className}
       `}
-      onClick={onClick}
+      onClick={handleClick}
     >
+      {isRippling && animationEffect === 'ripple' && (
+        <span 
+          className="absolute bg-white/20 rounded-full animate-ripple" 
+          style={{
+            left: rippleX,
+            top: rippleY,
+            width: '200%',
+            height: '200%',
+            marginLeft: '-100%',
+            marginTop: '-100%',
+          }}
+        />
+      )}
+      
       {isLoading && (
         <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
           <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>

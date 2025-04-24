@@ -56,7 +56,7 @@ const PersonaSelector = () => {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <Listbox.Options className="absolute w-full py-1 mt-1 overflow-auto text-base bg-[#4823ee] rounded-md shadow-lg max-h-60 focus:outline-none z-10">
+          <Listbox.Options className="absolute w-full py-1 mt-1 overflow-auto text-base bg-[#27335f] rounded-md shadow-lg max-h-60 focus:outline-none z-10">
             {personas.map((persona) => (
               <Listbox.Option
                 key={persona.id}
