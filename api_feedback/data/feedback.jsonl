@@ -1,0 +1,20 @@
+{"timestamp": "2025-04-23T16:31:47Z", "agent_name": "string", "rating": "like", "message": ""}
+{"timestamp": "2025-04-23T16:31:50Z", "agent_name": "string", "rating": "like", "message": ""}
+{"timestamp": "2025-04-23T20:51:17Z", "agent_name": "ROI Forecaster", "rating": "dislike", "message": "نتایج دقیق نبود"}
+{"timestamp": "2025-04-23T20:51:43Z", "agent_name": "ROI Forecaster", "rating": "dislike", "message": "نتایج دقیق نبود"}
+{"timestamp": "2025-04-23T20:51:47Z", "agent_name": "ROI Forecaster", "rating": "dislike", "message": "نتایج دقیق نبود"}
+{"timestamp": "2025-04-24T01:56:25Z", "agent_name": "StrategyAgent", "rating": "like", "message": "User liked the recommendation"}
+{"timestamp": "2025-04-24T01:56:27Z", "agent_name": "StrategyAgent", "rating": "like", "message": "User liked the recommendation"}
+{"timestamp": "2025-04-24T01:56:28Z", "agent_name": "StrategyAgent", "rating": "dislike", "message": "User disliked the recommendation"}
+{"timestamp": "2025-04-24T01:56:32Z", "agent_name": "StrategyAgent", "rating": "like", "message": "User liked the recommendation"}
+{"timestamp": "2025-04-24T01:56:36Z", "agent_name": "StrategyAgent", "rating": "like", "message": "User liked the recommendation"}
+{"timestamp": "2025-04-24T01:56:38Z", "agent_name": "StrategyAgent", "rating": "like", "message": "User liked the recommendation"}
+{"timestamp": "2025-04-24T01:56:40Z", "agent_name": "StrategyAgent", "rating": "dislike", "message": "User disliked the recommendation"}
+{"timestamp": "2025-04-24T01:56:41Z", "agent_name": "StrategyAgent", "rating": "dislike", "message": "User disliked the recommendation"}
+{"timestamp": "2025-04-24T01:56:42Z", "agent_name": "StrategyAgent", "rating": "dislike", "message": "User disliked the recommendation"}
+{"timestamp": "2025-04-24T01:56:46Z", "agent_name": "StrategyAgent", "rating": "like", "message": "User liked the recommendation"}
+{"timestamp": "2025-04-24T01:57:27Z", "agent_name": "StrategyAgent", "rating": "like", "message": "User liked the recommendation"}
+{"timestamp": "2025-04-24T01:57:27Z", "agent_name": "StrategyAgent", "rating": "like", "message": "User liked the recommendation"}
+{"timestamp": "2025-04-24T01:57:29Z", "agent_name": "StrategyAgent", "rating": "like", "message": "User liked the recommendation"}
+{"timestamp": "2025-04-24T01:57:35Z", "agent_name": "PriceAdvisorTool", "rating": "like", "message": "hi"}
+{"timestamp": "2025-04-24T02:08:22Z", "agent_name": "StrategyAgent", "rating": "like", "message": "User liked the recommendation"}

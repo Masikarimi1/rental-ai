@@ -1,0 +1,108 @@
+trendspotter_task:
+  description: >
+    Compare current and previous rental CSV files to identify locations 
+    with the highest rent per sqft increase.
+  agent: TrendSpotter
+  expected_output: >
+    A JSON object with:
+      - "trend_insight": A high-level statement about market trend
+      - "results": List of top 3 records, each containing:
+          - "location": Neighborhood name
+          - "current_rent_per_sqft": Numeric value of recent average
+          - "percent_change": Increase % compared to prior dataset
+
+roi_forecaster_task:
+  description: >
+    Calculate ROI for each property in {csv_path} using estimated market value from and list top 3 investment-worthy listings.
+  agent: ROI Forecaster
+  expected_output: >
+    A list of JSON objects, each containing:
+      - "Address": Property location
+      - "Location": Neighborhood
+      - "City": City name
+      - "Rent": Annual rent
+      - "Area_in_sqft": Property size
+      - "Estimated_Value": Approx market value
+      - "ROI": Return on investment percentage
+      - "log_action": Action taken with brief ROI overall insight
+
+news_task:
+  description: >
+    Ingest and analyze the latest news signals from a CSV file containing recent headlines from sources like Gulf News, Khaleej Times, and Zawya. Your job is to extract high‑impact real estate insights by classifying each news item into signal categories (🏗️ Infrastructure, 🏛️ Policy, 💰 Economy, 🧱 Construction), evaluating its likely market impact, and generating a clear, actionable summary tailored for real estate decision makers.
+
+    Use reasoning over signal semantics and geographical cues (e.g. ‘Dubai Marina’, ‘Sheikh Zayed Road’) to associate each signal with a relevant impact zone or unit type (e.g., ‘villas’, ‘offices’, ‘Downtown’).
+
+    Finally, produce an action‑oriented recommendation that could be consumed by agents managing pricing, development pipelines, or investment strategies.
+  agent: The Real Estate News Intelligence Analyst
+  expected_output: >
+    A list of structured JSON objects where each item contains:
+      - "source": Source of the article (e.g. Gulf News)
+      - "headline": Title of the news article
+      - "link": URL to the original article
+      - "signal_category": Classified signal type [Infrastructure, Policy, Economy, Construction]
+      - "impact_area": The neighborhood, zone, or unit type expected to be affected (e.g., Sheikh Zayed Road, villas)
+      - "agent_summary": A concise insight from the agent about the market implication
+      - "action_cta": Suggested action or alert trigger (e.g., 'Adjust rents in Marina by +3%', 'Pause launches in Dubailand')
+
+database_task:
+  description: >
+    1. Receive trend data from the trendspotter_agent, roi_forecaster_agent, and news_insight_agent.
+    2. Store the analyzed trend data in the database.
+    3. Confirm successful data storage.
+  agent: Database Manager
+  expected_output: >
+    Confirmation of data storage and database structure
+
+action_brief_task:
+  description: >
+    1. Load the combined JSON results file produced by all agents (TrendSpotter, ROI Forecaster, News Intelligence).
+    2. For each agent’s output, extract the key insights and translate them into 1 brief.
+  agent: Action Brief Generator
+  expected_output: >
+    A JSON object with four fields (one per agent), each containing a list of action item strings. For example:
+      {
+        "TrendSpotter": [
+          "Identified increase in rents by 3% in Downtown"
+        ],
+        "News Intelligence": [
+          "🚆 suggested to adjust pricing strategy along Sheikh Zayed Road following Green Metro announcement"
+        ]
+      }
+
+
+conversational_memory_task:
+  description: >
+    Using the provided context:
+    1. Analyze the retrieved information to answer query {user_query}
+    2. Formulate a clear and accurate response
+    3. Include relevant supporting details from the context
+  agent: research_analyst
+  expected_output: >
+    A JSON object with:
+      - "reply": A concise and accurate answer based on the retrieved context,
+                     with relevant supporting information included
+
+vacancy_insights_task:
+  description: >
+    Calculate vacancy KPI's for properties in {csv_path}
+  agent: Vacancy Analyst
+  expected_output: >
+    {
+      "portfolio": {
+        "vacancy_rate_pct": <float>,
+        "vacant_units": <int>,
+        "total_units": <int>,
+        "occupancy_rate_pct": <float>,
+        "average_vacancy_days": <float>,
+        "delta_vs_target_days": <float>
+      },
+      "highest_vacancy_location": {
+        "location": "<string>",
+        "vacancy_rate_pct": <float>,
+        "vacant_units": <int>,
+        "avg_vacancy_days": <int>,
+        "vacancy_rate_pct": <float>
+      },
+      "vacancy_alert": an alert message considering avg_vacancy_days and vacancy_rate_pct example: Properties in Al-Barsha have
+       have been vacant for an average of avg_vacancy_days days which is vacancy_rate_pct% longer than market average
+    }
