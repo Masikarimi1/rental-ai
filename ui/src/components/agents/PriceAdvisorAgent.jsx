@@ -31,11 +31,11 @@ const PriceAdvisorAgent = ({ initialProperty }) => {
     address: 'Apartment 403, Al Barsha Heights',
     location: 'Al Barsha',
     current_rent: 85000,
-    recommended_rent: 80750,
-    recommendation_type: 'decrease',
-    recommendation_percentage: 5,
+    recommended_rent: 85085, // Changed to 0.1% increase
+    recommendation_type: 'increase', // Changed from 'decrease' to 'increase'
+    recommendation_percentage: 0.1, // Changed from 5 to 0.1
     vacancy_days: 28,
-    market_trend: 'declining',
+    market_trend: 'competitive', // Changed from 'declining' to 'competitive'
     confidence: 'high',
     market_context: {
       average_days_vacant: 16,
