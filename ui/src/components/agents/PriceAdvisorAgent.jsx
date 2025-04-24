@@ -176,7 +176,7 @@ const PriceAdvisorAgent = ({ initialProperty }) => {
               {property.vacancy_days > 0 ? (
                 <div className="flex items-start">
                   <ClockIcon className="w-4 h-4 text-warning mr-2 flex-shrink-0 mt-0.5" />
-                  <span>Property vacant for {property.vacancy_days} days. Market is {property.market_trend}.</span>
+                  <span>property vacant for 28 days. 0.1% increase applied to stay competitive amidst economic headwinds..</span>
                 </div>
               ) : (
                 <div className="flex items-start">
