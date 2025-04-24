@@ -22,3 +22,8 @@
 {"timestamp": "2025-04-24T02:50:39Z", "agent_name": "StrategyAgent", "rating": "like", "message": "User liked the recommendation"}
 {"timestamp": "2025-04-24T02:50:41Z", "agent_name": "StrategyAgent", "rating": "dislike", "message": "User disliked the recommendation"}
 {"timestamp": "2025-04-24T02:50:44Z", "agent_name": "StrategyAgent", "rating": "like", "message": "User liked the recommendation"}
+{"timestamp": "2025-04-24T07:53:28Z", "agent_name": "PriceAdvisorTool", "rating": "like", "message": "Applied 5% decrease recommendation for Apartment 403, Al Barsha Heights"}
+{"timestamp": "2025-04-24T07:53:56Z", "agent_name": "StrategyAgent", "rating": "like", "message": "User liked the recommendation"}
+{"timestamp": "2025-04-24T07:54:11Z", "agent_name": "InsightAgent", "rating": "dislike", "message": "good"}
+{"timestamp": "2025-04-24T07:54:14Z", "agent_name": "InsightAgent", "rating": "like", "message": "User liked the recommendation"}
+{"timestamp": "2025-04-24T07:54:15Z", "agent_name": "ScrapeAgent", "rating": "dislike", "message": "User disliked the recommendation"}

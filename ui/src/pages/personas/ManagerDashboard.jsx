@@ -1,4 +1,4 @@
-// ui1/src/pages/personas/ManagerDashboard.jsx
+// /gebral-Estate/ui/src/pages/personas/ManagerDashboard.jsx
 import React from 'react';
 import GlassCard from '../../components/common/GlassCard';
 import Badge from '../../components/common/Badge';
@@ -6,6 +6,8 @@ import Button from '../../components/common/Button';
 import TrendChart from '../../components/dashboard/TrendChart';
 import PriceAdvisorAgent from '../../components/agents/PriceAdvisorAgent';
 import LiveLogs from '../../components/dashboard/LiveLogs';
+import ROIForecasterAgent from '../../components/agents/ROIForecasterAgent';
+import NewsIntelligenceAgent from '../../components/agents/NewsIntelligenceAgent';
 import { 
   ArrowPathIcon, 
   AdjustmentsHorizontalIcon, 
@@ -45,7 +47,7 @@ const ManagerDashboard = () => {
         </div>
       </div>
       
-      {/* Updated grid from 4 to 3 columns */}
+      {/* Dashboard stats */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <GlassCard className="flex flex-col">
           <div className="text-gray-light text-sm">Occupancy Rate</div>
@@ -218,6 +220,19 @@ const ManagerDashboard = () => {
           <PriceAdvisorAgent />
           
           <LiveLogs />
+        </div>
+      </div>
+      
+      {/* Added ROI Forecaster and News Intelligence Agents in the proper layout */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div>
+          <h2 className="text-xl font-semibold mb-4">Investment Analysis Tools</h2>
+          <ROIForecasterAgent />
+        </div>
+        
+        <div>
+          <h2 className="text-xl font-semibold mb-4">Market Intelligence Feed</h2>
+          <NewsIntelligenceAgent />
         </div>
       </div>
     </div>
