@@ -12,8 +12,10 @@ const StrategyAgentChat = () => {
   const [messages, setMessages] = useState([]);
   const [inputValue, setInputValue] = useState('');
   const [isTyping, setIsTyping] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(null);
   const { currentPersona } = usePersona();
   const messagesEndRef = useRef(null);
+  const chatContainerRef = useRef(null);
 
   // Sample suggestions based on persona
   const getSuggestions = () => {
@@ -52,8 +54,27 @@ const StrategyAgentChat = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
+  // Adjust height for mobile viewports
+  useEffect(() => {
+    const adjustHeight = () => {
+      if (chatContainerRef.current) {
+        const viewportHeight = window.innerHeight;
+        const offset = window.innerWidth < 768 ? 120 : 144; // Smaller offset on mobile
+        chatContainerRef.current.style.height = `${viewportHeight - offset}px`;
+      }
+    };
+    
+    adjustHeight();
+    window.addEventListener('resize', adjustHeight);
+    
+    return () => window.removeEventListener('resize', adjustHeight);
+  }, []);
+
   const handleSendMessage = async () => {
     if (inputValue.trim() === '') return;
+    
+    // Clear any previous errors
+    setErrorMessage(null);
     
     // Add user message
     const userMessage = {
@@ -71,10 +92,14 @@ const StrategyAgentChat = () => {
       // Send message to API and get response
       const response = await sendChatQuery(inputValue.trim());
       
+      if (!response || !response.result) {
+        throw new Error("Invalid response from server");
+      }
+      
       // Create agent message from API response
       const agentMessage = {
         id: Date.now() + 1,
-        content: response.result || "I'm sorry, I couldn't process that request.",
+        content: response.result,
         sender: 'agent',
         timestamp: new Date()
       };
@@ -82,6 +107,8 @@ const StrategyAgentChat = () => {
       setMessages(prev => [...prev, agentMessage]);
     } catch (error) {
       console.error("Error sending message:", error);
+      
+      setErrorMessage("Connection issue. Please try again.");
       
       // Create error message
       const errorMessage = {
@@ -107,32 +134,41 @@ const StrategyAgentChat = () => {
   const handleSuggestionClick = (suggestion) => {
     setInputValue(suggestion);
     // Focus the input
-    document.getElementById('chat-input').focus();
+    document.getElementById('chat-input')?.focus();
   };
 
   return (
-    <div className="flex flex-col h-[calc(100vh-9rem)]">
+    <div 
+      className="flex flex-col h-full" 
+      ref={chatContainerRef}
+    >
       <GlassCard className="flex-1 flex flex-col overflow-hidden">
-        <div className="flex items-center justify-between p-4 border-b border-white/10">
+        <div className="flex items-center justify-between p-3 md:p-4 border-b border-white/10">
           <div className="flex items-center">
-            <div className="bg-primary/20 p-2 rounded-full mr-3">
+            <div className="bg-primary/20 p-2 rounded-full mr-2 md:mr-3">
               <BoltIcon className="w-5 h-5 text-primary-light" />
             </div>
             <div>
-              <h2 className="font-semibold">Strategy Agent</h2>
-              <p className="text-xs text-gray-light">AI assistant for real estate decisions</p>
+              <h2 className="font-semibold text-sm md:text-base">Strategy Agent</h2>
+              <p className="text-xs text-gray-light hidden md:block">AI assistant for real estate decisions</p>
             </div>
           </div>
+          
+          {errorMessage && (
+            <div className="text-xs text-danger bg-danger/10 px-2 py-1 rounded-full">
+              {errorMessage}
+            </div>
+          )}
         </div>
         
-        <div className="flex-1 overflow-y-auto p-4 space-y-4">
+        <div className="flex-1 overflow-y-auto p-3 md:p-4 space-y-4">
           {messages.length === 0 ? (
-            <div className="flex flex-col items-center justify-center h-full text-center">
-              <div className="bg-primary/10 p-4 rounded-full mb-4">
-                <BoltIcon className="w-10 h-10 text-primary-light" />
+            <div className="flex flex-col items-center justify-center h-full text-center p-4">
+              <div className="bg-primary/10 p-3 md:p-4 rounded-full mb-3 md:mb-4">
+                <BoltIcon className="w-8 h-8 md:w-10 md:h-10 text-primary-light" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">Strategy Agent Chat</h3>
-              <p className="text-gray-light max-w-md mb-6">
+              <h3 className="text-lg md:text-xl font-semibold mb-2">Strategy Agent Chat</h3>
+              <p className="text-gray-light max-w-md mb-4 md:mb-6 text-sm md:text-base">
                 Ask questions about market trends, pricing strategies, or investment opportunities. I'll provide tailored insights based on real-time data.
               </p>
               
@@ -140,7 +176,7 @@ const StrategyAgentChat = () => {
                 {suggestions.map((suggestion, index) => (
                   <button
                     key={index}
-                    className="text-left p-3 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 transition-colors"
+                    className="text-left p-2 md:p-3 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 transition-colors text-sm md:text-base break-words"
                     onClick={() => handleSuggestionClick(suggestion)}
                   >
                     {suggestion}
@@ -160,8 +196,8 @@ const StrategyAgentChat = () => {
               
               {isTyping && (
                 <div className="flex items-center text-gray-light text-sm">
-                  <div className="bg-white/10 rounded-full p-2 mr-2">
-                    <BoltIcon className="w-4 h-4 text-primary-light" />
+                  <div className="bg-white/10 rounded-full p-1 md:p-2 mr-2">
+                    <BoltIcon className="w-3 h-3 md:w-4 md:h-4 text-primary-light" />
                   </div>
                   <div className="flex space-x-1">
                     <div className="animate-pulse-subtle h-2 w-2 rounded-full bg-gray-light"></div>
@@ -176,11 +212,11 @@ const StrategyAgentChat = () => {
           )}
         </div>
         
-        <div className="p-4 border-t border-white/10">
+        <div className="p-3 md:p-4 border-t border-white/10">
           <div className="relative">
             <textarea
               id="chat-input"
-              className="w-full bg-white/5 border border-white/10 rounded-lg pl-4 pr-12 py-3 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 text-white placeholder-gray-light resize-none"
+              className="w-full bg-white/5 border border-white/10 rounded-lg pl-3 pr-12 py-2 md:pl-4 md:pr-12 md:py-3 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 text-white placeholder-gray-light resize-none text-sm md:text-base"
               placeholder="Ask a question..."
               rows="2"
               value={inputValue}
@@ -188,19 +224,19 @@ const StrategyAgentChat = () => {
               onKeyDown={handleKeyDown}
             />
             
-            <div className="absolute right-2 bottom-2 flex items-center space-x-2">
-              <button className="p-2 rounded-full hover:bg-white/10 text-gray-light">
-                <PlusIcon className="w-5 h-5" />
+            <div className="absolute right-2 bottom-2 flex items-center space-x-1 md:space-x-2">
+              <button className="p-1 md:p-2 rounded-full hover:bg-white/10 text-gray-light">
+                <PlusIcon className="w-4 h-4 md:w-5 md:h-5" />
               </button>
-              <button className="p-2 rounded-full hover:bg-white/10 text-gray-light">
-                <MicrophoneIcon className="w-5 h-5" />
+              <button className="p-1 md:p-2 rounded-full hover:bg-white/10 text-gray-light hidden md:block">
+                <MicrophoneIcon className="w-4 h-4 md:w-5 md:h-5" />
               </button>
               <button 
-                className="p-2 rounded-full bg-primary hover:bg-primary-dark text-white disabled:opacity-50"
+                className="p-1 md:p-2 rounded-full bg-primary hover:bg-primary-dark text-white disabled:opacity-50"
                 onClick={handleSendMessage}
                 disabled={inputValue.trim() === '' || isTyping}
               >
-                <PaperAirplaneIcon className="w-5 h-5" />
+                <PaperAirplaneIcon className="w-4 h-4 md:w-5 md:h-5" />
               </button>
             </div>
           </div>
