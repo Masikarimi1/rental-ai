@@ -22,3 +22,4 @@
 {"timestamp": "2025-04-24T02:50:39Z", "agent_name": "StrategyAgent", "rating": "like", "message": "User liked the recommendation"}
 {"timestamp": "2025-04-24T02:50:41Z", "agent_name": "StrategyAgent", "rating": "dislike", "message": "User disliked the recommendation"}
 {"timestamp": "2025-04-24T02:50:44Z", "agent_name": "StrategyAgent", "rating": "like", "message": "User liked the recommendation"}
+{"timestamp": "2025-04-24T04:48:55Z", "agent_name": "StrategyAgent", "rating": "like", "message": "User liked the recommendation"}

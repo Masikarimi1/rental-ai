@@ -1,4 +1,4 @@
-// /gebral-Estate/ui/src/components/agents/PriceAdvisorAgent.jsx
+// ui/src/components/agents/PriceAdvisorAgent.jsx
 import React, { useState, useEffect } from 'react';
 import Card from '../common/Card';
 import Button from '../common/Button';
@@ -24,6 +24,7 @@ const PriceAdvisorAgent = ({ initialProperty }) => {
   const [showMarketContext, setShowMarketContext] = useState(false);
   const [feedbackText, setFeedbackText] = useState('');
   const [showApprovalAlert, setShowApprovalAlert] = useState(false);
+  const [isApplying, setIsApplying] = useState(false);
   const { data, isLoading, lastUpdated, fetchData } = useAgentPolling('price-advisor', 300000); // 5 min polling
   const [property, setProperty] = useState(null);
   
@@ -75,6 +76,11 @@ const PriceAdvisorAgent = ({ initialProperty }) => {
   
   const applyRecommendation = async () => {
     try {
+      setIsApplying(true);
+      
+      // Simulate API call latency
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
       setIsApplied(true);
       setShowNotification(true);
       setShowApprovalAlert(false);
@@ -93,6 +99,8 @@ const PriceAdvisorAgent = ({ initialProperty }) => {
     } catch (error) {
       console.error("Error applying recommendation:", error);
       // Show error notification if needed
+    } finally {
+      setIsApplying(false);
     }
   };
 
@@ -129,7 +137,7 @@ const PriceAdvisorAgent = ({ initialProperty }) => {
         className="relative"
       >
         {isLoading && (
-          <div className="absolute inset-0 bg-dark-deeper/50 flex items-center justify-center z-10 rounded-lg">
+          <div className="absolute inset-0 bg-dark-deeper/60 backdrop-blur-sm flex items-center justify-center z-10 rounded-lg animate-fade-in">
             <div className="flex flex-col items-center">
               <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mb-2"></div>
               <span className="text-sm">Updating recommendation...</span>
@@ -138,21 +146,21 @@ const PriceAdvisorAgent = ({ initialProperty }) => {
         )}
         
         <div className="space-y-4">
-          <div>
+          <div className="animate-slide-in">
             <div className="text-sm text-gray-light mb-1">Property</div>
             <div className="font-medium">{property.address}</div>
             <div className="text-sm text-gray-light">{property.location}</div>
           </div>
           
           <div className="grid grid-cols-2 gap-4">
-            <div>
+            <div className="animate-slide-in" style={{ animationDelay: '0.1s' }}>
               <div className="text-sm text-gray-light mb-1">Current Rent</div>
               <div className="font-medium text-lg">
                 {formatCurrency(property.current_rent)}
               </div>
             </div>
             
-            <div>
+            <div className="animate-slide-in" style={{ animationDelay: '0.2s' }}>
               <div className="text-sm text-gray-light mb-1">Recommended</div>
               <div className="font-medium text-lg text-primary-light">
                 {formatCurrency(property.recommended_rent)}
@@ -160,7 +168,7 @@ const PriceAdvisorAgent = ({ initialProperty }) => {
             </div>
           </div>
           
-          <div className="bg-white/5 rounded-lg p-3 border border-white/10">
+          <div className="bg-white/5 rounded-lg p-3 border border-white/10 animate-slide-in" style={{ animationDelay: '0.3s' }}>
             <div className="flex items-center mb-2">
               {property.recommendation_type === 'decrease' ? (
                 <ArrowTrendingDownIcon className="w-5 h-5 text-primary-light mr-2" />
@@ -190,16 +198,22 @@ const PriceAdvisorAgent = ({ initialProperty }) => {
               <Badge 
                 variant={property.confidence === 'high' ? 'success' : 'warning'} 
                 size="sm"
+                glow={property.confidence === 'high'}
               >
                 {property.confidence.charAt(0).toUpperCase() + property.confidence.slice(1)} confidence
               </Badge>
               
               {isApplied ? (
-                <Badge variant="success" size="sm" icon={CheckIcon}>
+                <Badge variant="success" size="sm" icon={CheckIcon} pulse={true}>
                   Applied
                 </Badge>
               ) : (
-                <Button size="sm" onClick={handleApply}>
+                <Button 
+                  size="sm" 
+                  onClick={handleApply} 
+                  isLoading={isApplying}
+                  animationEffect="scale"
+                >
                   Apply Recommendation
                 </Button>
               )}
@@ -207,9 +221,10 @@ const PriceAdvisorAgent = ({ initialProperty }) => {
             
             {/* Feedback textarea */}
             {!isApplied && (
-              <div className="mt-4">
+              <div className="mt-4 animate-slide-in" style={{ animationDelay: '0.4s' }}>
                 <textarea
-                  className="w-full bg-white/5 border border-white/10 rounded-lg p-2 text-sm focus:outline-none focus:border-primary-light"
+                  className="w-full bg-white/5 border border-white/10 rounded-lg p-2 text-sm 
+                            focus:outline-none focus:border-primary-light transition-colors duration-200"
                   placeholder="Why did you apply or ignore this recommendation?"
                   rows="3"
                   value={feedbackText}
@@ -220,7 +235,7 @@ const PriceAdvisorAgent = ({ initialProperty }) => {
             
             {/* Manager approval alert */}
             {showApprovalAlert && (
-              <div className="mt-4 bg-warning/10 border border-warning/30 rounded-lg p-3 flex items-start">
+              <div className="mt-4 bg-warning/10 border border-warning/30 rounded-lg p-3 flex items-start animate-slide-in">
                 <ExclamationTriangleIcon className="w-5 h-5 text-warning mr-2 flex-shrink-0 mt-0.5" />
                 <div>
                   <p className="text-sm font-medium text-warning">Manager Approval Required</p>
@@ -240,17 +255,17 @@ const PriceAdvisorAgent = ({ initialProperty }) => {
             )}
           </div>
           
-          <div>
+          <div className="animate-slide-in" style={{ animationDelay: '0.5s' }}>
             <button 
-              className="flex items-center text-sm text-gray-light hover:text-white transition-colors"
+              className="flex items-center text-sm text-gray-light hover:text-white transition-colors duration-200 group"
               onClick={() => setShowMarketContext(!showMarketContext)}
             >
-              <ChartBarIcon className="w-4 h-4 mr-1" />
+              <ChartBarIcon className="w-4 h-4 mr-1 transition-transform duration-200 group-hover:scale-110" />
               {showMarketContext ? 'Hide market context' : 'Show market context'}
             </button>
             
             {showMarketContext && property.market_context && (
-              <div className="mt-3 bg-white/5 rounded-lg p-3 border border-white/10 text-sm">
+              <div className="mt-3 bg-white/5 rounded-lg p-3 border border-white/10 text-sm animate-slide-in">
                 <div className="grid grid-cols-2 gap-y-2">
                   <div>
                     <span className="text-gray-light">Avg. vacancy:</span>

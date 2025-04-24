@@ -1,0 +1,256 @@
+/* ui/src/styles/animations.css */
+/**
+ * This file contains enhanced animations for the Gebral Estate UI
+ * It should be imported in the main index.css file
+ */
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  
+  @keyframes slideDown {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  
+  @keyframes slideLeft {
+    from { transform: translateX(20px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+  
+  @keyframes slideRight {
+    from { transform: translateX(-20px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+  
+  @keyframes pulse {
+    0% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.05); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+  
+  @keyframes pulseSubtle {
+    0% { opacity: 1; }
+    50% { opacity: 0.8; }
+    100% { opacity: 1; }
+  }
+  
+  @keyframes ripple {
+    0% {
+      transform: scale(0);
+      opacity: 0.5;
+    }
+    100% {
+      transform: scale(4);
+      opacity: 0;
+    }
+  }
+  
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+  
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-2px); }
+    20%, 40%, 60%, 80% { transform: translateX(2px); }
+  }
+  
+  /* Animation Utility Classes */
+  .animate-fade-in {
+    animation: fadeIn 0.4s ease forwards;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.4s ease forwards;
+  }
+  
+  .animate-slide-down {
+    animation: slideDown 0.4s ease forwards;
+  }
+  
+  .animate-slide-left {
+    animation: slideLeft 0.4s ease forwards;
+  }
+  
+  .animate-slide-right {
+    animation: slideRight 0.4s ease forwards;
+  }
+  
+  .animate-slide-in {
+    animation: slideRight 0.4s ease forwards;
+  }
+  
+  .animate-pulse {
+    animation: pulse 2s infinite;
+  }
+  
+  .animate-pulse-subtle {
+    animation: pulseSubtle 2s infinite;
+  }
+  
+  .animate-bounce {
+    animation: bounce 2s infinite;
+  }
+  
+  .animate-spin {
+    animation: spin 1s linear infinite;
+  }
+  
+  .animate-ripple {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .animate-ripple::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    background-image: radial-gradient(circle, #fff 10%, transparent 10.01%);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    transform: scale(10, 10);
+    opacity: 0;
+    transition: transform 0.5s, opacity 0.8s;
+  }
+  
+  .animate-ripple:active::after {
+    transform: scale(0, 0);
+    opacity: 0.3;
+    transition: 0s;
+  }
+  
+  .animate-shake {
+    animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+  }
+  
+  /* Animation delays */
+  .delay-100 {
+    animation-delay: 0.1s;
+  }
+  
+  .delay-200 {
+    animation-delay: 0.2s;
+  }
+  
+  .delay-300 {
+    animation-delay: 0.3s;
+  }
+  
+  .delay-400 {
+    animation-delay: 0.4s;
+  }
+  
+  .delay-500 {
+    animation-delay: 0.5s;
+  }
+  
+  /* Animation durations */
+  .duration-300 {
+    animation-duration: 0.3s;
+  }
+  
+  .duration-500 {
+    animation-duration: 0.5s;
+  }
+  
+  .duration-700 {
+    animation-duration: 0.7s;
+  }
+  
+  .duration-1000 {
+    animation-duration: 1s;
+  }
+  
+  /* Interactive element animations */
+  .interactive-element {
+    transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .interactive-element:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .interactive-element:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Button-specific hover effects */
+  .btn-hover-effect {
+    position: relative;
+    overflow: hidden;
+    transform: translate3d(0, 0, 0);
+  }
+  
+  .btn-hover-effect::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+  
+  .btn-hover-effect:hover::before {
+    transform: translateX(0);
+  }
+  
+  /* Glow effects for badges and buttons */
+  .shadow-primary-glow {
+    box-shadow: 0 0 8px rgba(37, 99, 235, 0.6);
+  }
+  
+  .shadow-success-glow {
+    box-shadow: 0 0 8px rgba(16, 185, 129, 0.6);
+  }
+  
+  .shadow-warning-glow {
+    box-shadow: 0 0 8px rgba(245, 158, 11, 0.6);
+  }
+  
+  .shadow-danger-glow {
+    box-shadow: 0 0 8px rgba(239, 68, 68, 0.6);
+  }
+  
+  .shadow-info-glow {
+    box-shadow: 0 0 8px rgba(59, 130, 246, 0.6);
+  }
+  
+  /* Helper classes for staggered animations */
+  .stagger-appear > * {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: slideUp 0.4s ease forwards;
+  }
+  
+  .stagger-appear > *:nth-child(1) { animation-delay: 0.1s; }
+  .stagger-appear > *:nth-child(2) { animation-delay: 0.2s; }
+  .stagger-appear > *:nth-child(3) { animation-delay: 0.3s; }
+  .stagger-appear > *:nth-child(4) { animation-delay: 0.4s; }
+  .stagger-appear > *:nth-child(5) { animation-delay: 0.5s; }
+  .stagger-appear > *:nth-child(6) { animation-delay: 0.6s; }
+  .stagger-appear > *:nth-child(7) { animation-delay: 0.7s; }
+  .stagger-appear > *:nth-child(8) { animation-delay: 0.8s; }
