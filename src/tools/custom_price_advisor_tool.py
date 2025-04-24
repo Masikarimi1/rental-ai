@@ -101,7 +101,7 @@ def _status_message(row: pd.Series) -> str:
                 f"Est. annual impact: AED {impact:,.0f}.")
     return (f"Strategic {abs_pct:.1f} % {direction} proposed due to "
             f"extended vacancy. Est. annual impact: AED {impact:,.0f}. "
-            "Approval request sent to property manager.")
+            "Approval request mail is sent to property manager.")
 
 # ───────── Args schema ─────────
 class PriceInput(BaseModel):
@@ -132,6 +132,7 @@ class PriceAdvisorTool(BaseTool):
         news_files = sorted(os.listdir(NEWS_DIR))
         if news_files:
             news_df  = pd.read_csv(NEWS_DIR / news_files[-1])
+            print(news_df)
             headlines = news_df.get("headline", pd.Series()).dropna().tolist()
 
         df.columns = df.columns.str.lower()
@@ -172,7 +173,7 @@ class PriceAdvisorTool(BaseTool):
         df["confidence"]       = df["change_pct"].abs().map(
             lambda d: "High" if d >= 5 else "Medium" if d >= 2 else "Low"
         )
-
+        df['headlines'] = headlines[0]
         # 7️⃣ Action routing + e-mail
         def _action(row):
             pct = row["change_pct"]

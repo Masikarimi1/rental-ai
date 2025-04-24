@@ -56,7 +56,7 @@ database_task:
 action_brief_task:
   description: >
     Load the combined JSON results file produced by all agents and for each agent’s output, brief the action of agent combined with the result.
-    for price advisor agent, provide status_msg
+    for price advisor agent, only provide value of key "action"
   agent: Action Brief Generator
   expected_output: >
     A list of structured JSON objects where each item contains:
@@ -84,27 +84,27 @@ conversational_memory_task:
 
 vacancy_insights_task:
   description: >
-    Calculate vacancy KPI's for properties in {csv_path}
+    Calculate vacancy KPI's for properties in {csv_path}. vacancy alert should analyst the tool output and tell how many days the highest vacancy property is vacant how much is percentage (vacancy_rate_pct) is higher than in the market
   agent: Vacancy Analyst
   expected_output: >
     A list of structured JSON objects where each item contains:
-    vacancy_rate_pct: % of all units that are currently vacant
-    vacant_units: Absolute count of vacant units
-    total_units: Total units in the portfolio (vacant + occupied)
-    occupancy_rate_pct: % of units that are occupied (100 – vacancy_rate_pct)
-    average_vacancy_days: Mean days current vacancies have been on the market
-    delta_vs_target_days: Avg-vacancy-days minus company target (positive = slower)
-    highest_vacancy_location:
-      location: Area/neighbourhood with the worst vacancy metrics
-      vacancy_rate_pct: Vacancy rate within that location
-      vacant_units: Number of empty units there
-      avg_vacancy_days: Average days vacant for those units
-    vacancy_alert: Properties in <location> have been vacant for an average of <avg_vacancy_days> days
+      - "vacancy_rate_pct": "% of all units that are currently vacant"
+      - "vacant_units": "Absolute count of vacant units"
+      - "total_units": "Total units in the portfolio (vacant + occupied)"
+      - "occupancy_rate_pct": "% of units that are occupied (100 – vacancy_rate_pct)"
+      - "average_vacancy_days": "Mean days current vacancies have been on the market"
+      - "delta_vs_target_days": "Avg-vacancy-days minus company target (positive = slower)"
+      - "highest_vacancy_location":
+        - "location": "Area/neighbourhood with the worst vacancy metrics"
+        - "vacancy_rate_pct": "Vacancy rate within that locati"on
+        - "vacant_units": "Number of empty units there"
+        - "avg_vacancy_days": "Average days vacant for those units"
+      - "vacancy_alert": "Properties in <location> have been vacant for an average of <avg_vacancy_days> days which is percentage <vacancy_rate_pct> more than the market trend"
 
 
 price_advisor_task:
   description: >  
-    Calculate price based on market
+    Calculate price based on market using custom pricing adviser tool, also add additional detail "action" which would summarize the action of te agent combining status_msg and headlines
   agent: Price Advisor
   expected_output: >
     A list of JSON objects, each containing:
@@ -135,5 +135,7 @@ price_advisor_task:
       - "change_pct": Percentage change in price or market value
       - "recommended_rent": Suggested rental price based on market analysis
       - "confidence": Confidence level in the recommended rent
+      - "headlines": "Global Recession Fears Intensify, UAE Economy Faces Headwinds",
       - "price_action": Indication of any price adjustments made (e.g., applied, suggested)
       - "status_msg": A message related to the current status or price action of the listing
+      - "action": summary of the action.  combining status_msg and headlines

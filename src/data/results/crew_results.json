@@ -2,22 +2,22 @@
   {
     "agent": "TrendSpotter",
     "output": {
-      "trend_insight": "The rental market is experiencing notable growth in specific areas, indicating emerging hotspots with substantial rent increases.",
+      "trend_insight": "The rental market is exhibiting strong growth in several key areas with notable increases in rent per sqft, reflecting rising demand and limited supply.",
       "results": [
         {
           "location": "Jumeirah Beach Residence (JBR)",
           "current_rent_per_sqft": 301,
-          "percent_change": "10.5%"
-        },
-        {
-          "location": "Dubai Marina",
-          "current_rent_per_sqft": 185,
-          "percent_change": "8.2%"
+          "percent_change": 0.0
         },
         {
           "location": "Downtown Dubai",
           "current_rent_per_sqft": 283,
-          "percent_change": "7.9%"
+          "percent_change": 0.0
+        },
+        {
+          "location": "Palm Jumeirah",
+          "current_rent_per_sqft": 235,
+          "percent_change": 0.0
         }
       ]
     }
@@ -29,31 +29,31 @@
         "Address": "Corniche Deira, Deira, Dubai",
         "Location": "Deira",
         "City": "Dubai",
-        "Rent": 330000.0,
-        "Area_in_sqft": 1991.0,
+        "Rent": 330000,
+        "Area_in_sqft": 1991,
         "Estimated_Value": 2308440.68,
         "ROI": 14.3,
-        "log_action": "Highest ROI property; consider aggressive marketing due to low market value."
+        "log_action": "Highest ROI property in Deira; market potential is significant due to location."
       },
       {
         "Address": "Harrington House, JVC District 14, Jumeirah Village Circle (JVC), Dubai",
         "Location": "Jumeirah Village Circle (JVC)",
         "City": "Dubai",
-        "Rent": 63999.0,
-        "Area_in_sqft": 384.0,
+        "Rent": 63999,
+        "Area_in_sqft": 384,
         "Estimated_Value": 486833.64,
         "ROI": 13.15,
-        "log_action": "Strong ROI; a growing investment opportunity in a developing area."
+        "log_action": "Promising ROI in JVC; development in the area supports investment growth."
       },
       {
         "Address": "Jumeirah Gate Tower 1, The Address Residences Jumeirah Resort and Spa, Jumeirah Beach Residence (JBR), Dubai",
         "Location": "Jumeirah Beach Residence (JBR)",
         "City": "Dubai",
-        "Rent": 350000.0,
-        "Area_in_sqft": 1161.0,
+        "Rent": 350000,
+        "Area_in_sqft": 1161,
         "Estimated_Value": 2664661.5,
         "ROI": 13.13,
-        "log_action": "Competitively priced; suggest promoting its prime location."
+        "log_action": "Competitively priced; leverage its luxury appeal to attract high-end renters."
       }
     ]
   },
@@ -62,102 +62,106 @@
     "output": [
       {
         "source": "Gulf News",
-        "headline": "Dubai launches new Green Metro Corridor",
+        "headline": "Global Recession Fears Intensify, UAE Economy Faces Headwinds",
         "link": "https://gulfnews.com/dubai-metro-expansion",
-        "signal_category": "Infrastructure",
+        "signal_category": "Economy",
         "impact_area": "Sheikh Zayed Road",
-        "agent_summary": "The launch of the new Green Metro Corridor is expected to significantly enhance connectivity along Sheikh Zayed Road, likely driving rent increases due to improved accessibility.",
-        "action_cta": "Adjust rents along Sheikh Zayed Road by +5% in anticipation of increased demand."
+        "agent_summary": "Heightened concerns about global recession may pressure rental prices upward along the Sheikh Zayed Road as demand remains strong against economic uncertainties.",
+        "action_cta": "Adjust rents in Sheikh Zayed Road by +5%"
       },
       {
         "source": "Khaleej Times",
-        "headline": "DIFC unveils new fintech accelerator program",
+        "headline": "UAE Non-Oil Sector Growth Slows Sharply in Q1 2025, Job Concerns Rise",
         "link": "https://khaleejtimes.com/difc-fintech-launch",
         "signal_category": "Economy",
-        "impact_area": "DIFC",
-        "agent_summary": "The establishment of a fintech accelerator in DIFC is expected to boost demand for commercial office spaces in the area as startups and businesses flock to the hub.",
-        "action_cta": "Monitor commercial leasing rates in DIFC; potential rent adjustments may be needed."
+        "impact_area": "DIFC (Dubai International Financial Centre)",
+        "agent_summary": "Sluggish growth in the non-oil sector could lead to decreased demand for commercial spaces, impacting rental prices in DIFC.",
+        "action_cta": "Reassess commercial lease agreements in DIFC for potential reductions."
       },
       {
         "source": "The National",
-        "headline": "UAE government introduces renewable energy tax incentives",
+        "headline": "Major Tech Companies Announce Layoffs in Dubai Amidst Market Correction",
         "link": "https://thenational.ae/uae-energy-policy",
         "signal_category": "Policy",
-        "impact_area": "UAE (nationwide)",
-        "agent_summary": "New tax incentives for renewable energy projects may stimulate a surge in green building developments, positively impacting property valuations in eco-friendly developments.",
-        "action_cta": "Explore investment opportunities in green building projects across the UAE."
+        "impact_area": "UAE-wide, specifically targeting tech sector hubs",
+        "agent_summary": "Layoffs in the tech industry may lead to a downturn in demand for residential and commercial properties in affected areas, particularly tech hubs.",
+        "action_cta": "Pause new leasing initiatives in tech sector hubs until market stabilizes."
       },
       {
         "source": "Emirates 24/7",
-        "headline": "UAE reports significant GDP growth in Q3 2023",
+        "headline": "Vacancy Rates in Dubai Hit Record High as New Supply Floods the Market",
         "link": "https://emirates247.com/uae-gdp-growth-q3-2023",
-        "signal_category": "Economy",
-        "impact_area": "UAE (nationwide)",
-        "agent_summary": "The reported GDP growth signals a positive investment climate, which could strengthen the real estate market and attract more foreign investors.",
-        "action_cta": "Review investment strategies to capitalize on emerging opportunities."
+        "signal_category": "Construction",
+        "impact_area": "Dubai-wide",
+        "agent_summary": "An influx of new properties has led to higher vacancy rates, yet presents an opportunity for investors to acquire properties at lower prices.",
+        "action_cta": "Consider aggressive marketing strategies to reduce vacancy rates across portfolios."
       },
       {
         "source": "Arabian Business",
-        "headline": "Major delays in completion of Dubai megaprojects",
+        "headline": "New Visa Regulations Tighten Eligibility for Expatriate Workers",
         "link": "https://arabianbusiness.com/dubai-megaproject-delays",
-        "signal_category": "Construction",
-        "impact_area": "Dubai (various megaprojects)",
-        "agent_summary": "Delays in megaprojects might lead to potential price stabilization in off-plan properties, offering market opportunities for buyers looking for value.",
-        "action_cta": "Consider pausing new development launches in affected areas until stabilization occurs."
+        "signal_category": "Policy",
+        "impact_area": "Off-plan properties, Dubai",
+        "agent_summary": "Stricter visa regulations may stabilize prices in the off-plan market as demand from expatriate workers potentially decreases.",
+        "action_cta": "Review developments in off-plan projects in light of the new regulations."
       }
     ]
   },
   {
     "agent": "Vacancy Analyst",
-    "output": {
-      "vacancy_rate_pct": 31.35,
-      "vacant_units": 163,
-      "total_units": 520,
-      "occupancy_rate_pct": 68,
-      "average_vacancy_days": 12.6,
-      "delta_vs_target_days": -1.4,
-      "highest_vacancy_location": {
-        "location": "Deira",
-        "vacancy_rate_pct": 80.0,
-        "vacant_units": 8,
-        "avg_vacancy_days": 30
-      },
-      "vacancy_alert": "Properties in Deira have been vacant for an average of 30 days."
-    }
+    "output": [
+      {
+        "vacancy_rate_pct": 31.35,
+        "vacant_units": 163,
+        "total_units": 520,
+        "occupancy_rate_pct": 68,
+        "average_vacancy_days": 12.6,
+        "delta_vs_target_days": -1.4,
+        "highest_vacancy_location": {
+          "location": "Deira",
+          "vacancy_rate_pct": 80.0,
+          "vacant_units": 8,
+          "avg_vacancy_days": 45
+        },
+        "vacancy_alert": "Properties in Deira have been vacant for an average of 45 days which is percentage 48.65 more than the market trend"
+      }
+    ]
   },
   {
     "agent": "Price Advisor",
     "output": [
       {
-        "address": "Corniche Deira, Deira, Dubai",
-        "rent": 330000.0,
-        "beds": 3,
-        "baths": 3,
+        "address": "Burj Sabah, JVC District 12, Jumeirah Village Circle (JVC), Dubai",
+        "rent": 110000,
+        "beds": 2,
+        "baths": 2,
         "type": "Apartment",
-        "area_in_sqft": 1991.0,
-        "rent_per_sqft": 165.75,
-        "rent_category": "High",
+        "area_in_sqft": 1200,
+        "rent_per_sqft": 91.66666667,
+        "rent_category": "Medium",
         "frequency": "Yearly",
-        "furnishing": "Unfurnished",
+        "furnishing": "Furnished",
         "purpose": "For Rent",
-        "posted_date": "2023-10-01",
-        "age_of_listing_in_days": 40,
-        "location": "Deira",
+        "posted_date": "03-01-2025",
+        "age_of_listing_in_days": 106,
+        "location": "Jumeirah Village Circle (JVC)",
         "city": "Dubai",
-        "latitude": 25.264,
-        "longitude": 55.315,
-        "vacant_days": 30,
-        "total_units": 20,
-        "vacant_units": 8,
-        "source": "Agency Name",
-        "complaint": "No complaints",
-        "complaint_count": 0,
-        "market_trend": "stable",
-        "change_pct": 0.05,
-        "recommended_rent": 313500.0,
-        "confidence": "High",
-        "price_action": "suggested",
-        "status_msg": "5% decrease suggested to attract new tenants."
+        "latitude": 25.0559446,
+        "longitude": 55.20746503,
+        "vacant_days": 23,
+        "total_units": 30,
+        "vacant_units": 6,
+        "source": "Corporate Partners",
+        "complaint": null,
+        "complaint_count": null,
+        "market_trend": "rising",
+        "change_pct": 0.1,
+        "recommended_rent": 110110.0,
+        "confidence": "Low",
+        "headlines": "Global Recession Fears Intensify, UAE Economy Faces Headwinds",
+        "price_action": "applied",
+        "status_msg": "0.1 % increase auto-applied to stay competitive. Est. annual impact: AED 110.",
+        "action": "Rental price was adjusted by 0.1% in response to economic headwinds highlighted in the global recession fears."
       }
     ]
   },
@@ -168,18 +172,12 @@
         "TrendSpotter": [
           "Identified increase in rents by 3% in Downtown Dubai"
         ],
-        "ROI Forecaster": [
-          "Consider aggressive marketing for highest ROI property in Deira with a suggested marketing strategy due to low market values."
-        ],
         "News Intelligence": [
-          "Adjust pricing strategy along Sheikh Zayed Road following Green Metro announcement; potential rent increase by +5% in anticipation of increased demand."
+          "Suggested to adjust pricing strategy along Sheikh Zayed Road following Green Metro announcement"
         ],
-        "Database Manager": [
-          "Review properties with high vacancy rates; implement a recommendation for a 5% price decrease for units in Deira to attract new tenants."
-        ],
-        "Price Advisor": {
-          "status_msg": "5% decrease suggested to attract new tenants."
-        }
+        "Price Advisor": [
+          "Rental price was adjusted by 0.1% in response to economic headwinds highlighted in the global recession fears."
+        ]
       }
     ]
   }
