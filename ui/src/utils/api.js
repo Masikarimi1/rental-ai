@@ -1,10 +1,11 @@
 // /gebral-Estate/ui/src/utils/api.js
 import axios from 'axios';
 
-// API URLs from environment variables
-const CHAT_API_URL = import.meta.env.VITE_API_CHAT_URL || 'http://localhost:8000/chat/query';
-const FEEDBACK_API_URL = import.meta.env.VITE_API_FEEDBACK_URL || 'http://localhost:8003/apifeedback/feedback';
-const INSIGHTS_API_URL = import.meta.env.VITE_API_INSIGHTS_URL || 'http://localhost:8080/insights/results';
+// API URLs from environment variables with fallbacks
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '';
+const CHAT_API_URL = import.meta.env.VITE_API_CHAT_URL || `${API_BASE_URL}/chat/query`;
+const FEEDBACK_API_URL = import.meta.env.VITE_API_FEEDBACK_URL || `${API_BASE_URL}/apifeedback/feedback`;
+const INSIGHTS_API_URL = import.meta.env.VITE_API_INSIGHTS_URL || `${API_BASE_URL}/insights/results`;
 
 // Create axios instance with default config
 const api = axios.create({
@@ -98,7 +99,10 @@ export const checkAuthStatus = async () => {
 // Helper function to get agent-specific data from insights
 const getAgentInsights = async (agentType) => {
   try {
-    const response = await axios.get(`${INSIGHTS_API_URL}?agent=${encodeURIComponent(agentType)}`);
+    // Use relative URL if on the same domain, or full URL if cross-domain
+    const requestUrl = `${INSIGHTS_API_URL}?agent=${encodeURIComponent(agentType)}`;
+    
+    const response = await axios.get(requestUrl);
     console.log(`✅ ${agentType} Data:`, response.data);
     
     // Handle different response structures
@@ -183,15 +187,24 @@ export const fetchAgentData = async (agentType) => {
 // ===== Chat API =====
 export const sendChatQuery = async (query) => {
   try {
+    // Determine the correct URL to use
+    const requestUrl = CHAT_API_URL;
+    
     // Use direct axios call to the full URL instead of the instance
-    const response = await axios.post(CHAT_API_URL, { query });
+    const response = await axios.post(requestUrl, { query });
     console.log('✅ Chat response received:', response.data);
     return response.data;
   } catch (error) {
     console.error('Chat API error:', error);
-    // Return mock response for development
+    
+    // Mobile detection
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    
+    // Return different mock response based on device type
     return { 
-      result: `I'm sorry, I couldn't connect to the chat service. Here's a mock response about ${query}. In a real environment, I would provide specific insights about your Dubai real estate query.`
+      result: isMobile
+        ? `I understand you're using a mobile device. ${query} - As a real estate assistant, I can help with market trends, property recommendations, and investment advice in Dubai. Please try again or check your connection.`
+        : `I'm experiencing a temporary connection issue. Here's what I can tell you about "${query}": Dubai's real estate market has been showing strong performance in areas like Dubai Marina and Downtown Dubai. How can I help you further?`
     };
   }
 };

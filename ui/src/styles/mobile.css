@@ -1,0 +1,220 @@
+/* ui/src/styles/mobile.css */
+/**
+ * Mobile optimization styles for Gebral Estate
+ * These styles enhance the mobile experience across the application
+ */
+
+/* Mobile viewport height fix */
+.h-mobile-screen {
+    height: 100vh; /* Fallback */
+    height: calc(var(--vh, 1vh) * 100);
+  }
+  
+  .min-h-mobile-screen {
+    min-height: 100vh; /* Fallback */
+    min-height: calc(var(--vh, 1vh) * 100);
+  }
+  
+  /* Mobile-specific layout adjustments */
+  @media (max-width: 768px) {
+    /* Reduce padding and margins */
+    .content-container {
+      padding: 0.75rem !important;
+    }
+    
+    .glass-card {
+      padding: 0.75rem !important;
+    }
+    
+    /* Improve touch targets */
+    button, 
+    .clickable, 
+    a, 
+    input[type="checkbox"], 
+    input[type="radio"],
+    .interactive-element {
+      min-height: 44px;
+      min-width: 44px;
+    }
+    
+    /* Adjust font sizes */
+    h1 {
+      font-size: 1.5rem !important;
+    }
+    
+    h2 {
+      font-size: 1.25rem !important;
+    }
+    
+    h3 {
+      font-size: 1.125rem !important;
+    }
+    
+    /* Fix overflow issues */
+    .table-container {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Improve form elements */
+    input, textarea, select {
+      font-size: 16px !important; /* Prevents iOS zoom on focus */
+    }
+    
+    /* Stack grid items */
+    .stack-on-mobile {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    /* Full width buttons */
+    .full-width-on-mobile {
+      width: 100% !important;
+    }
+    
+    /* Better mobile notifications */
+    .notification {
+      width: 100% !important;
+      max-width: 100% !important;
+      left: 0 !important;
+      right: 0 !important;
+      margin: 0 !important;
+      border-radius: 0 !important;
+    }
+  }
+  
+  /* iPhone X+ Safe Areas */
+  @supports (padding: max(0px)) {
+    .safe-area-inset-bottom {
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+    
+    .safe-area-inset-top {
+      padding-top: env(safe-area-inset-top);
+    }
+    
+    .safe-area-inset-left {
+      padding-left: env(safe-area-inset-left);
+    }
+    
+    .safe-area-inset-right {
+      padding-right: env(safe-area-inset-right);
+    }
+  }
+  
+  /* Improved touch/tap interactions */
+  @media (hover: none) and (pointer: coarse) {
+    /* Add active state styles for better touch feedback */
+    .touch-feedback:active {
+      opacity: 0.7;
+      transform: scale(0.98);
+    }
+    
+    /* Reduce hover effects that might confuse mobile users */
+    .no-hover-on-touch:hover {
+      transform: none !important;
+      box-shadow: none !important;
+    }
+  }
+  
+  /* Fix input zooming on iOS */
+  @media screen and (max-width: 768px) {
+    input[type="text"], 
+    input[type="email"], 
+    input[type="password"],
+    input[type="number"],
+    input[type="search"],
+    input[type="tel"],
+    input[type="url"],
+    textarea,
+    select {
+      font-size: 16px !important;
+    }
+    
+    /* Fix for double-tap issues */
+    a, button {
+      touch-action: manipulation;
+    }
+  }
+  
+  /* Improve scrolling experience */
+  .smooth-scroll {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+  
+  /* Mobile-specific animations */
+  @media (prefers-reduced-motion: no-preference) {
+    .mobile-animation {
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+  }
+  
+  /* Safari-specific fixes */
+  @media not all and (min-resolution: 0.001dpcm) {
+    @supports (-webkit-appearance:none) {
+      /* Target Safari 11+ */
+      .safari-fix {
+        -webkit-appearance: none;
+        -webkit-transform: translateZ(0);
+      }
+    }
+  }
+  
+  /* Fix for position: fixed on mobile */
+  .fixed-mobile {
+    position: fixed;
+    width: 100%;
+    max-height: 100vh;
+    max-height: calc(var(--vh, 1vh) * 100);
+    overflow-y: auto;
+  }
+  
+  /* Portrait/landscape adjustments */
+  @media screen and (orientation: portrait) {
+    .portrait-only {
+      display: block;
+    }
+    
+    .landscape-only {
+      display: none;
+    }
+  }
+  
+  @media screen and (orientation: landscape) {
+    .portrait-only {
+      display: none;
+    }
+    
+    .landscape-only {
+      display: block;
+    }
+  }
+  
+  /* Mobile network status indicator */
+  .network-status {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 4px;
+    text-align: center;
+    font-size: 12px;
+    z-index: 9999;
+    transition: all 0.3s ease;
+  }
+  
+  .network-status.online {
+    background-color: rgba(16, 185, 129, 0.9);
+    transform: translateY(-100%);
+  }
+  
+  .network-status.offline {
+    background-color: rgba(239, 68, 68, 0.9);
+    transform: translateY(0);
+  }
+  
+  body.offline .network-dependent {
+    opacity: 0.5;
+    pointer-events: none;
+  }

@@ -17,8 +17,9 @@ import PropertyAnalysis from '@pages/PropertyAnalysis';
 import StrategyChat from '@pages/StrategyChat';
 import Settings from '@pages/Settings';
 
-// Theme detector
+// Theme detector and network detection
 import { useThemeDetector } from '@hooks/useThemeDetector';
+import { initNetworkDetection } from '@utils/networkDetection';
 
 // Preloading component for better UX
 const PreloadingScreen = ({ onLoadComplete }) => {
@@ -47,6 +48,28 @@ const PreloadingScreen = ({ onLoadComplete }) => {
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
   const isDarkMode = useThemeDetector();
+  
+  // Mobile viewport height fix
+  useEffect(() => {
+    const setVhProperty = () => {
+      // First we get the viewport height and we multiply it by 1% to get a value for a vh unit
+      const vh = window.innerHeight * 0.01;
+      // Then we set the value in the --vh custom property to the root of the document
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    };
+
+    // Set the initial value
+    setVhProperty();
+
+    // Update the height on window resize or orientation change
+    window.addEventListener('resize', setVhProperty);
+    window.addEventListener('orientationchange', setVhProperty);
+
+    return () => {
+      window.removeEventListener('resize', setVhProperty);
+      window.removeEventListener('orientationchange', setVhProperty);
+    };
+  }, []);
   
   // Apply dark mode class to body
   useEffect(() => {

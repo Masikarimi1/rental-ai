@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
     <title>Gebral - Agentic AI for Real Estate Intelligence</title>
@@ -27,6 +27,68 @@
     <meta name="twitter:title" content="Gebral - AI for Real Estate in Dubai" />
     <meta name="twitter:description" content="Explore our AI-powered tools for smarter real estate decisions." />
     <meta name="twitter:image" content="https://gebral.ir/social-preview.png" />
+    
+    <!-- Apple mobile web app meta -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Gebral" />
+    
+    <!-- Mobile app icon -->
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    
+    <!-- PWA manifest -->
+    <link rel="manifest" href="/manifest.json" />
+    
+    <!-- Prevent phone number detection on iOS -->
+    <meta name="format-detection" content="telephone=no" />
+    
+    <!-- Network status detection script -->
+    <script>
+      // Add network status detection
+      function updateOnlineStatus() {
+        const statusElement = document.getElementById('network-status');
+        if (!statusElement) {
+          // Create the status element if it doesn't exist
+          const statusDiv = document.createElement('div');
+          statusDiv.id = 'network-status';
+          statusDiv.className = 'online-status';
+          document.body.appendChild(statusDiv);
+        }
+        
+        const status = navigator.onLine ? 'online' : 'offline';
+        document.body.className = status;
+        
+        const networkStatus = document.getElementById('network-status');
+        networkStatus.className = `online-status ${status}`;
+        networkStatus.textContent = status === 'online' 
+          ? 'Connection restored' 
+          : 'No internet connection. Some features may not work.';
+        
+        // Hide "online" message after a few seconds
+        if (status === 'online') {
+          setTimeout(() => {
+            networkStatus.className = 'online-status';
+          }, 3000);
+        }
+      }
+      
+      // Initial check
+      window.addEventListener('load', updateOnlineStatus);
+      
+      // Listen for changes
+      window.addEventListener('online', updateOnlineStatus);
+      window.addEventListener('offline', updateOnlineStatus);
+      
+      // Fix iOS vh units
+      function setVh() {
+        const vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+      }
+      
+      window.addEventListener('load', setVh);
+      window.addEventListener('resize', setVh);
+      window.addEventListener('orientationchange', setVh);
+    </script>
   </head>
   <body>
     <div id="root"></div>
