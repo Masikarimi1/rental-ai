@@ -11,11 +11,14 @@ BASE_DIR = Path(__file__).resolve().parent
 FEEDBACK_FILE = BASE_DIR / "data" / "feedback.jsonl"
 FEEDBACK_FILE.parent.mkdir(parents=True, exist_ok=True)   # create ./data if missing
 
-# ───────── FastAPI app ─────────
+# ───────── FastAPI app with root_path ─────────
 app = FastAPI(
     title="Agent Feedback API",
     description="Collects like / dislike feedback on agent responses.",
     version="1.1",
+    root_path="/apifeedback",
+    docs_url="/docs",
+    redoc_url=None
 )
 
 class Feedback(BaseModel):
@@ -67,4 +70,4 @@ def health():
 # ───────── App Runner ─────────
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8003)
+    uvicorn.run("main:app", host="0.0.0.0", port=8003, reload=True)

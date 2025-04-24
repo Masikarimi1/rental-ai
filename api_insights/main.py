@@ -6,10 +6,14 @@ from fastapi.responses import JSONResponse
 import os
 import json
 from pathlib import Path
+
 app = FastAPI(
     title="CrewAI Results API",
     description="API to serve CrewAI agent outputs stored in JSON files",
     version="1.0",
+    root_path="/insights",
+    docs_url="/docs",
+    redoc_url=None
 )
 
 # Path to the JSON file (can be overridden via env var)
@@ -37,4 +41,4 @@ def get_all_results():
 # If running directly with `python api.py`
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8080)
+    uvicorn.run("main:app", host="0.0.0.0", port=8080, reload=True)
