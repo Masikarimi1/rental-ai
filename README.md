@@ -87,9 +87,9 @@ We serve three real-world personas across the value chain:
 | 🎤 **Yag Nessh** | Business Strategist · Lead Presenter | Fundraising pitch · Business modeling · Final demo lead |
 
 ### 🎤 Pitch Plan
-- **Presenter:** Yag Nessh  
-- **Pitch Support:** Masi Karimi  
-- **Q&A Support:** Santhosh, Thomas, Rinisha
+- **Presenter:** Yag Nessh, Rinisha Mohammed  
+- **Pitch Support:** Masi Karimi
+- **Q&A Support:** Santhosh, Thomas
 
 ---
 
