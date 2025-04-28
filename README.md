@@ -81,7 +81,7 @@ We serve three real-world personas across the value chain:
 |------|------|------------------|
 | 🎓 **Masi Karimi** | AI Specialist · Team Lead · QA Strategist · Pitch Designer | Project coordination · Prompt QA · AI logic tuning · Pitch design |
 | 🧑‍💻 **Ehsan Rahimi** | Frontend Developer · Agent Architect · Product Strategist | UI/UX · API integration · Agent-user alignment |
-| 🧠 **Rinisha Mohammed** | Senior Data Scientist · Agentic AI DEsign and Dev | RAG Dev · LLM Integrator | Vector DB setup · Prompt tuning · Slide content |
+| 🧠 **Rinisha Mohammed** | Senior Data Scientist(GenAI Sepcialist) · Agentic AI Design and Dev | RAG Dev · LLM Integrator | Vector DB setup · Prompt tuning · Slide content |
 | 🏗️ **Thomas Sebastian** | Solution Architect · Backend Engineer | API dev · Backend logic · Deployment |
 | 🧩 **Santhosh Mannilputhamadam** | Enterprise Architect · Strategy Lead | Technical roadmap · Q&A support · Scalability planning |
 | 🎤 **Yag Nessh** | Business Strategist · Lead Presenter | Fundraising pitch · Business modeling · Final demo lead |
